@@ -1,0 +1,21 @@
+﻿# Flutter
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Node
+backend/node_modules/
+node_modules/
+npm-debug.log
+
+# Local demo database
+backend/data/database.json
+
+# IDE
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
