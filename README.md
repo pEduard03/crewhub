@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # CrewHub Full-Stack V8 English + Romanian Toggle
+=======
+# CrewHub Full-Stack V7 English + Romanian Toggle
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
 Versiune orientată pe business logic:
 - grupuri pentru sport / ieșiri / travel / gaming / study / work
@@ -96,7 +100,11 @@ Remove-Item .\backend\data\database.json -Force
 Apoi pornește backendul din nou.
 
 
+<<<<<<< HEAD
 ## V8 language update
+=======
+## V7 language update
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
 - Default language is English.
 - There is a `RO` button in the login AppBar and main AppBar.
@@ -111,6 +119,7 @@ taskkill /F /IM node.exe
 Remove-Item .\backend\data\database.json -Force
 npm run dev
 ```
+<<<<<<< HEAD
 
 
 ## V9 Auth Start
@@ -438,3 +447,5 @@ Login/Register UX update:
 - error text supports RO/EN:
   - RO: `Emailul sau parola sunt greșite.`
   - EN: `Wrong email or password.`
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d

@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 name: crewhub_mobile_v25
 description: CrewHub V25 bilingual app with English and Romanian UI.
+=======
+name: crewhub_mobile_v7
+description: CrewHub V7 bilingual app with English and Romanian UI.
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 publish_to: "none"
 
 version: 1.0.0+1
@@ -11,7 +16,10 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^1.2.2
+<<<<<<< HEAD
   file_picker: ^8.1.7
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
 dev_dependencies:
   flutter_test:

@@ -10,6 +10,7 @@ const DATA_DIR = path.join(__dirname, "data");
 const DATA_FILE = path.join(DATA_DIR, "database.json");
 
 app.use(cors());
+<<<<<<< HEAD
 app.use(express.json({ limit: "10mb" }));
 
 const currentUser = { id: "u1", name: "Cosmin", username: "@cosmin" };
@@ -354,6 +355,12 @@ function normalizeText(value) {
 
 
 
+=======
+app.use(express.json());
+
+const currentUser = { id: "u1", name: "Cosmin", username: "@cosmin" };
+
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 const members = [
   currentUser,
   { id: "u2", name: "Andrei", username: "@andrei" },
@@ -395,6 +402,7 @@ function createId(prefix) {
 function seedData() {
   return {
     currentUser,
+<<<<<<< HEAD
     users: [
       {
         id: "u1",
@@ -410,6 +418,8 @@ function seedData() {
         socialLinks: {}
       }
     ],
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     groups: [
       {
         id: "g1",
@@ -431,10 +441,13 @@ function seedData() {
             category: "sport",
             sportType: "football",
             location: "Copou Field",
+<<<<<<< HEAD
             country: "Romania",
             region: "Nord-Est",
             county: "Iași",
             city: "Iași",
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
             description: "Friendly match. The app automatically manages the reserve list.",
             dateTime: makeDate(2, 3),
             minParticipants: 8,
@@ -458,10 +471,13 @@ function seedData() {
             category: "sport",
             sportType: "volleyball",
             location: "Exhibition Park",
+<<<<<<< HEAD
             country: "Romania",
             region: "Nord-Est",
             county: "Iași",
             city: "Iași",
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
             description: "Casual volleyball, we bring the ball and water.",
             dateTime: makeDate(5, 1),
             minParticipants: 6,
@@ -495,10 +511,13 @@ function seedData() {
             category: "travel",
             sportType: "none",
             location: "Vatra Dornei",
+<<<<<<< HEAD
             country: "Romania",
             region: "Nord-Est",
             county: "Suceava",
             city: "Vatra Dornei",
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
             description: "We’ll plan cars, accommodation and shopping.",
             dateTime: makeDate(8, 4),
             minParticipants: 4,
@@ -531,10 +550,13 @@ function seedData() {
             category: "gaming",
             sportType: "none",
             location: "Discord",
+<<<<<<< HEAD
             country: "Romania",
             region: "București-Ilfov",
             county: "București",
             city: "Online",
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
             description: "Lobby la 21:30.",
             dateTime: makeDate(1, 2),
             minParticipants: 3,
@@ -556,6 +578,7 @@ function seedData() {
 
 let db = seedData();
 
+<<<<<<< HEAD
 function publicUser(user) {
   return {
     id: user.id,
@@ -692,6 +715,8 @@ function enrichedMembers(members) {
   });
 }
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 function normalizeDatabaseShape() {
   if (!db || typeof db !== "object") {
     db = seedData();
@@ -701,13 +726,17 @@ function normalizeDatabaseShape() {
     db.currentUser = currentUser;
   }
 
+<<<<<<< HEAD
   ensureUsersShape();
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   if (!Array.isArray(db.groups)) {
     db.groups = [];
   }
 
   for (const group of db.groups) {
+<<<<<<< HEAD
     if (!group.socialSubtype) {
       group.socialSubtype = "";
     }
@@ -724,6 +753,8 @@ function normalizeDatabaseShape() {
       group.location = "";
     }
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     if (!Array.isArray(group.members)) {
       group.members = [db.currentUser];
     }
@@ -736,10 +767,13 @@ function normalizeDatabaseShape() {
       group.messages = [];
     }
 
+<<<<<<< HEAD
     for (const message of group.messages) {
       normalizeMessageFields(message, group.id);
     }
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     for (const activity of group.activities) {
       if (!Array.isArray(activity.responses)) {
         activity.responses = [];
@@ -761,11 +795,14 @@ function normalizeDatabaseShape() {
         activity.sportType = activity.category === "sport" ? "football" : "none";
       }
 
+<<<<<<< HEAD
       if (!activity.country) activity.country = "Romania";
       if (!activity.region) activity.region = "București-Ilfov";
       if (!activity.county) activity.county = "București";
       if (activity.city === undefined || activity.city === null) activity.city = "";
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       if (!activity.organizerId) {
         activity.organizerId = db.currentUser.id;
       }
@@ -778,10 +815,14 @@ function normalizeDatabaseShape() {
         senderId: db.currentUser.id,
         text: "Chat started for this group.",
         createdAt: new Date().toISOString(),
+<<<<<<< HEAD
         type: "system",
         replyToMessageId: null,
         reactions: [],
         hiddenForUserIds: []
+=======
+        type: "system"
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       });
     }
   }
@@ -819,6 +860,7 @@ function findActivity(activityId) {
   return null;
 }
 
+<<<<<<< HEAD
 function normalizeMessageFields(message, groupId) {
   if (!message.id) {
     message.id = createId("m");
@@ -884,6 +926,8 @@ function makeChatMessage({ group, senderId, text, type = "text", replyToMessageI
   };
 }
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 function counts(activity) {
   const responses = Array.isArray(activity.responses) ? activity.responses : [];
 
@@ -907,10 +951,17 @@ function computeBusiness(activity) {
 
   const costPerPerson = c.going > 0 ? activity.totalCost / c.going : 0;
 
+<<<<<<< HEAD
   let smartHint = "Activity is open.";
   if (status === "needsPlayers") smartHint = `Need ${missingToConfirm} more participants.`;
   if (status === "confirmed") smartHint = `Confirmed. ${spotsLeft} spots left.`;
   if (status === "full") smartHint = "Activity is full. New members go to reserves.";
+=======
+  let smartHint = "Activitatea este deschisă.";
+  if (status === "needsPlayers") smartHint = `Mai ai nevoie de ${missingToConfirm} participanți.`;
+  if (status === "confirmed") smartHint = `Confirmată. Mai sunt ${spotsLeft} locuri.`;
+  if (status === "full") smartHint = "Activitatea este plină. Următorii intră la rezerve.";
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
   return {
     counts: c,
@@ -936,7 +987,10 @@ function groupWithBusiness(group) {
 
   return {
     ...group,
+<<<<<<< HEAD
     members: enrichedMembers(group.members),
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     messages: safeMessages,
     activities: safeActivities.map(activityWithBusiness),
     unreadCount: group.unreadCount || 0,
@@ -957,6 +1011,7 @@ function promoteReserveIfPossible(activity) {
 }
 
 app.get("/api/health", (req, res) => {
+<<<<<<< HEAD
   res.json({ ok: true, app: "CrewHub API V25", time: new Date().toISOString() });
 });
 
@@ -1141,6 +1196,11 @@ app.post("/api/auth/google-demo", async (req, res) => {
 });
 
 
+=======
+  res.json({ ok: true, app: "CrewHub API V7", time: new Date().toISOString() });
+});
+
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 app.get("/api/me", (req, res) => {
   res.json(db.currentUser);
 });
@@ -1156,7 +1216,11 @@ app.get("/api/groups/:groupId", (req, res) => {
 });
 
 app.post("/api/groups", async (req, res) => {
+<<<<<<< HEAD
   const { name, description, category, socialSubtype, country, city, location } = req.body;
+=======
+  const { name, description, category } = req.body;
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   if (!name || !String(name).trim()) {
     return res.status(400).json({ error: "Name is required" });
   }
@@ -1168,10 +1232,13 @@ app.post("/api/groups", async (req, res) => {
       ? String(description).trim()
       : "Group created in CrewHub.",
     category: category || "social",
+<<<<<<< HEAD
     socialSubtype: socialSubtype && String(socialSubtype).trim() ? String(socialSubtype).trim() : "",
     country: country || "Romania",
     city: city && String(city).trim() ? String(city).trim() : "",
     location: location && String(location).trim() ? String(location).trim() : "",
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     members: [db.currentUser],
     messages: [
       {
@@ -1180,10 +1247,14 @@ app.post("/api/groups", async (req, res) => {
         senderId: db.currentUser.id,
         text: "Group created. Let’s plan the first outing!",
         createdAt: new Date().toISOString(),
+<<<<<<< HEAD
         type: "system",
         replyToMessageId: null,
         reactions: [],
         hiddenForUserIds: []
+=======
+        type: "system"
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       }
     ],
     activities: []
@@ -1204,10 +1275,13 @@ app.post("/api/groups/:groupId/activities", async (req, res) => {
     category,
     sportType,
     location,
+<<<<<<< HEAD
     country,
     region,
     county,
     city,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     description,
     dateTime,
     minParticipants,
@@ -1229,10 +1303,13 @@ app.post("/api/groups/:groupId/activities", async (req, res) => {
     category: category || group.category,
     sportType: sportType || "none",
     location: location && String(location).trim() ? String(location).trim() : "Location not set",
+<<<<<<< HEAD
     country: country || "Romania",
     region: region || "București-Ilfov",
     county: county || "București",
     city: city && String(city).trim() ? String(city).trim() : "",
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     description: description && String(description).trim() ? String(description).trim() : "Activity created in CrewHub.",
     dateTime: dateTime || new Date().toISOString(),
     minParticipants: Math.min(min, max),
@@ -1245,12 +1322,23 @@ app.post("/api/groups/:groupId/activities", async (req, res) => {
   };
 
   group.activities.unshift(activity);
+<<<<<<< HEAD
   group.messages.push(makeChatMessage({
     group,
     senderId: db.currentUser.id,
     text: `Created activity: ${activity.title}`,
     type: "activity"
   }));
+=======
+  group.messages.push({
+    id: createId("m"),
+    groupId: group.id,
+    senderId: db.currentUser.id,
+    text: `Created activity: ${activity.title}`,
+    createdAt: new Date().toISOString(),
+    type: "activity"
+  });
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
   await saveDb();
   res.status(201).json(activityWithBusiness(activity));
@@ -1288,12 +1376,23 @@ app.patch("/api/activities/:activityId/rsvp", async (req, res) => {
     promoteReserveIfPossible(activity);
   }
 
+<<<<<<< HEAD
   group.messages.push(makeChatMessage({
     group,
     senderId: userId,
     text: `Status for "${activity.title}": ${finalStatus}`,
     type: "rsvp"
   }));
+=======
+  group.messages.push({
+    id: createId("m"),
+    groupId: group.id,
+    senderId: userId,
+    text: `Status for "${activity.title}": ${finalStatus}`,
+    createdAt: new Date().toISOString(),
+    type: "rsvp"
+  });
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
   await saveDb();
   res.json(activityWithBusiness(activity));
@@ -1302,6 +1401,7 @@ app.patch("/api/activities/:activityId/rsvp", async (req, res) => {
 app.get("/api/groups/:groupId/messages", (req, res) => {
   const group = getGroup(req.params.groupId);
   if (!group) return res.status(404).json({ error: "Group not found" });
+<<<<<<< HEAD
 
   const userId = req.query.userId ? String(req.query.userId) : db.currentUser.id;
   const messages = group.messages.filter((message) => {
@@ -1310,6 +1410,9 @@ app.get("/api/groups/:groupId/messages", (req, res) => {
   });
 
   res.json(messages);
+=======
+  res.json(group.messages);
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 });
 
 app.post("/api/groups/:groupId/messages", async (req, res) => {
@@ -1319,6 +1422,7 @@ app.post("/api/groups/:groupId/messages", async (req, res) => {
   const text = req.body.text && String(req.body.text).trim();
   if (!text) return res.status(400).json({ error: "Text is required" });
 
+<<<<<<< HEAD
   const replyToMessageId = req.body.replyToMessageId ? String(req.body.replyToMessageId) : null;
   if (replyToMessageId && !group.messages.some((item) => item.id === replyToMessageId)) {
     return res.status(400).json({ error: "Reply target not found in this group" });
@@ -1331,6 +1435,16 @@ app.post("/api/groups/:groupId/messages", async (req, res) => {
     type: "text",
     replyToMessageId
   });
+=======
+  const message = {
+    id: createId("m"),
+    groupId: group.id,
+    senderId: req.body.senderId || db.currentUser.id,
+    text,
+    createdAt: new Date().toISOString(),
+    type: "text"
+  };
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
   group.messages.push(message);
   await saveDb();
@@ -1341,6 +1455,7 @@ app.post("/api/groups/:groupId/messages", async (req, res) => {
 app.get("/api/messages/:groupId", (req, res) => {
   const group = getGroup(req.params.groupId);
   if (!group) return res.status(404).json({ error: "Group not found" });
+<<<<<<< HEAD
 
   const userId = req.query.userId ? String(req.query.userId) : db.currentUser.id;
   const messages = group.messages.filter((message) => {
@@ -1349,6 +1464,9 @@ app.get("/api/messages/:groupId", (req, res) => {
   });
 
   res.json(messages);
+=======
+  res.json(group.messages);
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 });
 
 app.post("/api/messages/:groupId", async (req, res) => {
@@ -1358,6 +1476,7 @@ app.post("/api/messages/:groupId", async (req, res) => {
   const text = req.body.text && String(req.body.text).trim();
   if (!text) return res.status(400).json({ error: "Text is required" });
 
+<<<<<<< HEAD
   const replyToMessageId = req.body.replyToMessageId ? String(req.body.replyToMessageId) : null;
   if (replyToMessageId && !group.messages.some((item) => item.id === replyToMessageId)) {
     return res.status(400).json({ error: "Reply target not found in this group" });
@@ -1370,12 +1489,23 @@ app.post("/api/messages/:groupId", async (req, res) => {
     type: "text",
     replyToMessageId
   });
+=======
+  const message = {
+    id: createId("m"),
+    groupId: group.id,
+    senderId: req.body.senderId || db.currentUser.id,
+    text,
+    createdAt: new Date().toISOString(),
+    type: "text"
+  };
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
   group.messages.push(message);
   await saveDb();
   res.status(201).json(message);
 });
 
+<<<<<<< HEAD
 
 
 app.patch("/api/messages/:messageId/delete-for-me", async (req, res) => {
@@ -1431,6 +1561,8 @@ app.patch("/api/messages/:messageId/reaction", async (req, res) => {
   res.json(found.message);
 });
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 app.get("/api/inbox", (req, res) => {
   const inbox = db.groups.map((group) => {
     const lastMessage = group.messages.length ? group.messages[group.messages.length - 1] : null;
@@ -1455,7 +1587,11 @@ app.post("/api/reset", async (req, res) => {
 
 loadDb().then(() => {
   app.listen(PORT, () => {
+<<<<<<< HEAD
     console.log(`CrewHub API V25 running on http://localhost:${PORT}`);
+=======
+    console.log(`CrewHub API V7 running on http://localhost:${PORT}`);
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     console.log(`Health: http://localhost:${PORT}/api/health`);
   });
 });

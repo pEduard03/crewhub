@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "crewhub-backend-v25",
+=======
+  "name": "crewhub-backend-v7",
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   "version": "1.0.0",
   "description": "CrewHub business logic API with group chat fixed",
   "main": "server.js",

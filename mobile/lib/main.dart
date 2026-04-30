@@ -1,9 +1,15 @@
 import 'dart:convert';
+<<<<<<< HEAD
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:file_picker/file_picker.dart';
+=======
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 import 'package:http/http.dart' as http;
 
 void main() {
@@ -19,7 +25,11 @@ class CrewHubApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+<<<<<<< HEAD
       title: 'CrewHub V25',
+=======
+      title: 'CrewHub V7',
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       themeMode: ThemeMode.dark,
       theme: ThemeData(
         useMaterial3: true,
@@ -63,14 +73,18 @@ class ApiConfig {
 
 enum AppLanguage { en, ro }
 
+<<<<<<< HEAD
 enum AuthMode { login, register }
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 enum GroupCategory { sport, social, travel, gaming, study, work, family, custom }
 
 enum RsvpStatus { going, maybe, notGoing, reserve }
 
 enum ActivityStatus { needsPlayers, open, confirmed, full }
 
+<<<<<<< HEAD
 class RomaniaRegion {
   RomaniaRegion({required this.id, required this.name, required this.counties});
   final String id;
@@ -88,6 +102,8 @@ class RomaniaRegion {
   }
 }
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class AppText {
   const AppText(this.language);
 
@@ -96,6 +112,7 @@ class AppText {
   bool get isRo => language == AppLanguage.ro;
 
   String get toggleLabel => isRo ? 'EN' : 'RO';
+<<<<<<< HEAD
   String get appTitle => 'CrewHub V25';
   String get validEmail => isRo ? 'Introdu un email valid, de exemplu nume@gmail.com.' : 'Enter a valid email address, for example name@gmail.com.';
   String get invalidCredentials => isRo ? 'Emailul sau parola sunt greșite.' : 'Wrong email or password.';
@@ -111,6 +128,9 @@ class AppText {
       ? 'Alege cel puțin un oraș.'
       : 'Select at least one city.';
   String get noCitiesFound => isRo ? 'Nu am găsit orașe.' : 'No cities found.';
+=======
+  String get appTitle => 'CrewHub V7';
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
   String get loginSubtitle => isRo
       ? 'Messenger pentru grupuri + planificator de ieșiri, sport și activități.'
@@ -167,6 +187,7 @@ class AppText {
       ? 'Fotbal, volei, gaming, excursii și alte planuri.'
       : 'Football, volleyball, gaming, trips and other plans.';
   String get profileSubtitle => isRo ? 'Utilizator demo.' : 'Demo user.';
+<<<<<<< HEAD
   String get editProfile => isRo ? 'Editează profilul' : 'Edit profile';
   String get profilePhoto => isRo ? 'Poză de profil' : 'Profile photo';
   String get chooseFromGallery => isRo ? 'Alege din galerie' : 'Choose from gallery';
@@ -186,6 +207,8 @@ class AppText {
   String get logoutQuestion => isRo ? 'Sigur vrei să te deconectezi?' : 'Are you sure you want to log out?';
   String get cancel => isRo ? 'Anulează' : 'Cancel';
   String get noBio => isRo ? 'Fără biografie încă.' : 'No biography yet.';
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   String get api => 'API';
   String get persistence => isRo ? 'Persistență' : 'Persistence';
   String get persistenceSubtitle => isRo
@@ -201,12 +224,15 @@ class AppText {
   String get noMessagesYet => isRo ? 'Niciun mesaj încă.' : 'No messages yet.';
   String get writeMessage => isRo ? 'Scrie un mesaj...' : 'Write a message...';
   String get system => isRo ? 'Sistem' : 'System';
+<<<<<<< HEAD
   String get addReaction => isRo ? 'Adaugă reacție' : 'Add reaction';
   String get deleteForMe => isRo ? 'Șterge pentru tine' : 'Delete for you';
   String get reply => isRo ? 'Răspunde' : 'Reply';
   String get messageDeletedForMe => isRo ? 'Mesaj șters pentru tine' : 'Message deleted for you';
   String replyingTo(String name) => isRo ? 'Răspunzi lui $name' : 'Replying to $name';
   String get cancelReply => isRo ? 'Anulează reply' : 'Cancel reply';
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
   String get status => 'Status';
   String minMax(int min, int max) => isRo ? 'Minim $min, maxim $max' : 'Minimum $min, maximum $max';
@@ -228,6 +254,7 @@ class AppText {
   String get groupName => isRo ? 'Nume grup' : 'Group name';
   String get addName => isRo ? 'Adaugă un nume.' : 'Add a name.';
   String get description => isRo ? 'Descriere' : 'Description';
+<<<<<<< HEAD
   String get category => isRo ? 'Categorie' : 'Category';
   String get groupCity => isRo ? 'Orașul' : 'City';
   String get groupLocation => isRo ? 'Locație' : 'Location';
@@ -240,6 +267,8 @@ class AppText {
   String get exactLocation => isRo ? 'Locație' : 'Location';
   String get exactLocationHint => isRo ? 'Exemplu: Copou, Centru, Iulius Mall...' : 'Example: city center, park, mall...';
   String get selectCityForGroup => isRo ? 'Alege orașul grupului.' : 'Choose the group city.';
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   String get saving => isRo ? 'Se salvează...' : 'Saving...';
 
   String get createOutingTitle => isRo ? 'Creează ieșire' : 'Create outing';
@@ -247,11 +276,14 @@ class AppText {
   String get title => isRo ? 'Titlu' : 'Title';
   String get addTitle => isRo ? 'Adaugă un titlu.' : 'Add a title.';
   String get location => isRo ? 'Locație' : 'Location';
+<<<<<<< HEAD
   String get country => isRo ? 'Țară' : 'Country';
   String get region => isRo ? 'Regiune' : 'Region';
   String get county => isRo ? 'Județ' : 'County';
   String get city => isRo ? 'Oraș' : 'City';
   String get cityHint => isRo ? 'Exemplu: Iași, Cluj-Napoca, București' : 'Example: Iași, Cluj-Napoca, Bucharest';
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   String get minParticipants => isRo ? 'Minim participanți' : 'Minimum participants';
   String get maxParticipants => isRo ? 'Maxim participanți' : 'Maximum participants';
   String get invalidNumber => isRo ? 'Număr invalid.' : 'Invalid number.';
@@ -447,16 +479,20 @@ class Member {
     required this.id,
     required this.name,
     required this.username,
+<<<<<<< HEAD
     required this.selectedCities,
     required this.gender,
     required this.bio,
     required this.avatarData,
     required this.socialLinks,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   });
 
   final String id;
   final String name;
   final String username;
+<<<<<<< HEAD
   final List<String> selectedCities;
   final String gender;
   final String bio;
@@ -470,10 +506,15 @@ class Member {
     final rawLinks = json['socialLinks'];
     final linksMap = rawLinks is Map ? rawLinks : <dynamic, dynamic>{};
 
+=======
+
+  factory Member.fromJson(Map<String, dynamic> json) {
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     return Member(
       id: json['id']?.toString() ?? '',
       name: json['name']?.toString() ?? '',
       username: json['username']?.toString() ?? '',
+<<<<<<< HEAD
       selectedCities: cities.map((item) => item.toString()).toList(),
       gender: json['gender']?.toString() ?? '',
       bio: json['bio']?.toString() ?? '',
@@ -502,6 +543,8 @@ class ChatReaction {
       userId: json['userId']?.toString() ?? '',
       emoji: json['emoji']?.toString() ?? '',
       createdAt: DateTime.tryParse(json['createdAt']?.toString() ?? '')?.toLocal() ?? DateTime.now(),
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     );
   }
 }
@@ -514,9 +557,12 @@ class ChatMessage {
     required this.text,
     required this.createdAt,
     required this.type,
+<<<<<<< HEAD
     required this.replyToMessageId,
     required this.reactions,
     required this.hiddenForUserIds,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   });
 
   final String id;
@@ -525,6 +571,7 @@ class ChatMessage {
   final String text;
   final DateTime createdAt;
   final String type;
+<<<<<<< HEAD
   final String? replyToMessageId;
   final List<ChatReaction> reactions;
   final List<String> hiddenForUserIds;
@@ -541,6 +588,10 @@ class ChatMessage {
         ? null
         : rawReplyId.toString();
 
+=======
+
+  factory ChatMessage.fromJson(Map<String, dynamic> json) {
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     return ChatMessage(
       id: json['id']?.toString() ?? '',
       groupId: json['groupId']?.toString() ?? '',
@@ -548,6 +599,7 @@ class ChatMessage {
       text: json['text']?.toString() ?? '',
       createdAt: DateTime.tryParse(json['createdAt']?.toString() ?? '')?.toLocal() ?? DateTime.now(),
       type: json['type']?.toString() ?? 'text',
+<<<<<<< HEAD
       replyToMessageId: replyId,
       reactions: reactionList
           .whereType<Map<String, dynamic>>()
@@ -567,6 +619,10 @@ class ChatMessage {
 
     return summary;
   }
+=======
+    );
+  }
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 }
 
 class ActivityResponse {
@@ -622,10 +678,13 @@ class Activity {
     required this.category,
     required this.sportType,
     required this.location,
+<<<<<<< HEAD
     required this.country,
     required this.region,
     required this.county,
     required this.city,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     required this.description,
     required this.dateTime,
     required this.minParticipants,
@@ -641,10 +700,13 @@ class Activity {
   final GroupCategory category;
   final String sportType;
   final String location;
+<<<<<<< HEAD
   final String country;
   final String region;
   final String county;
   final String city;
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   final String description;
   final DateTime dateTime;
   final int minParticipants;
@@ -664,10 +726,13 @@ class Activity {
       category: categoryFromString(json['category']?.toString() ?? 'social'),
       sportType: json['sportType']?.toString() ?? 'none',
       location: json['location']?.toString() ?? 'Location not set',
+<<<<<<< HEAD
       country: json['country']?.toString() ?? 'Romania',
       region: json['region']?.toString() ?? 'București-Ilfov',
       county: json['county']?.toString() ?? 'București',
       city: json['city']?.toString() ?? '',
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       description: json['description']?.toString() ?? '',
       dateTime: DateTime.tryParse(json['dateTime']?.toString() ?? '')?.toLocal() ?? DateTime.now(),
       minParticipants: int.tryParse(json['minParticipants']?.toString() ?? '') ?? 2,
@@ -698,10 +763,13 @@ class CrewGroup {
     required this.name,
     required this.description,
     required this.category,
+<<<<<<< HEAD
     required this.socialSubtype,
     required this.country,
     required this.city,
     required this.location,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     required this.members,
     required this.activities,
     required this.messages,
@@ -712,10 +780,13 @@ class CrewGroup {
   final String name;
   final String description;
   final GroupCategory category;
+<<<<<<< HEAD
   final String socialSubtype;
   final String country;
   final String city;
   final String location;
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   final List<Member> members;
   final List<Activity> activities;
   final List<ChatMessage> messages;
@@ -735,10 +806,13 @@ class CrewGroup {
       name: json['name']?.toString() ?? 'Group',
       description: json['description']?.toString() ?? '',
       category: categoryFromString(json['category']?.toString() ?? 'social'),
+<<<<<<< HEAD
       socialSubtype: json['socialSubtype']?.toString() ?? '',
       country: json['country']?.toString() ?? 'Romania',
       city: json['city']?.toString() ?? '',
       location: json['location']?.toString() ?? '',
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       members: members.whereType<Map<String, dynamic>>().map(Member.fromJson).toList(),
       activities: activities.whereType<Map<String, dynamic>>().map(Activity.fromJson).toList(),
       messages: messages.whereType<Map<String, dynamic>>().map(ChatMessage.fromJson).toList(),
@@ -773,10 +847,13 @@ class CrewGroup {
       name: name,
       description: description,
       category: category,
+<<<<<<< HEAD
       socialSubtype: socialSubtype,
       country: country,
       city: city,
       location: location,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       members: members,
       activities: activities,
       messages: newMessages,
@@ -786,6 +863,7 @@ class CrewGroup {
 }
 
 class ApiClient {
+<<<<<<< HEAD
   Future<Member> registerWithEmail({
     required String name,
     required String email,
@@ -893,6 +971,8 @@ class ApiClient {
     return Member.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
   }
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   Future<Member> getMe() async {
     final response = await http.get(Uri.parse('${ApiConfig.baseUrl}/me'));
     _check(response);
@@ -907,6 +987,7 @@ class ApiClient {
     return list.whereType<Map<String, dynamic>>().map(CrewGroup.fromJson).toList();
   }
 
+<<<<<<< HEAD
   Future<List<RomaniaRegion>> getRomaniaRegions() async {
     final response = await http.get(Uri.parse('${ApiConfig.baseUrl}/locations/romania'));
     _check(response);
@@ -916,14 +997,19 @@ class ApiClient {
     return list.whereType<Map<String, dynamic>>().map(RomaniaRegion.fromJson).toList();
   }
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   Future<CrewGroup> createGroup({
     required String name,
     required String description,
     required GroupCategory category,
+<<<<<<< HEAD
     required String socialSubtype,
     required String country,
     required String city,
     required String location,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   }) async {
     final response = await http.post(
       Uri.parse('${ApiConfig.baseUrl}/groups'),
@@ -932,10 +1018,13 @@ class ApiClient {
         'name': name,
         'description': description,
         'category': categoryToString(category),
+<<<<<<< HEAD
         'socialSubtype': socialSubtype,
         'country': country,
         'city': city,
         'location': location,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       }),
     );
     _check(response);
@@ -948,10 +1037,13 @@ class ApiClient {
     required GroupCategory category,
     required String sportType,
     required String location,
+<<<<<<< HEAD
     required String country,
     required String region,
     required String county,
     required String city,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     required String description,
     required DateTime dateTime,
     required int minParticipants,
@@ -966,10 +1058,13 @@ class ApiClient {
         'category': categoryToString(category),
         'sportType': sportType,
         'location': location,
+<<<<<<< HEAD
         'country': country,
         'region': region,
         'county': county,
         'city': city,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
         'description': description,
         'dateTime': dateTime.toUtc().toIso8601String(),
         'minParticipants': minParticipants,
@@ -998,11 +1093,16 @@ class ApiClient {
     return Activity.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
   }
 
+<<<<<<< HEAD
   Future<List<ChatMessage>> getMessages(String groupId, String userId) async {
     final uri = Uri.parse('${ApiConfig.baseUrl}/groups/$groupId/messages')
         .replace(queryParameters: {'userId': userId});
 
     final response = await http.get(uri);
+=======
+  Future<List<ChatMessage>> getMessages(String groupId) async {
+    final response = await http.get(Uri.parse('${ApiConfig.baseUrl}/groups/$groupId/messages'));
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     _check(response);
     final decoded = jsonDecode(response.body);
     final list = decoded is List ? decoded : <dynamic>[];
@@ -1013,7 +1113,10 @@ class ApiClient {
     required String groupId,
     required String senderId,
     required String text,
+<<<<<<< HEAD
     String? replyToMessageId,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   }) async {
     final response = await http.post(
       Uri.parse('${ApiConfig.baseUrl}/groups/$groupId/messages'),
@@ -1021,13 +1124,17 @@ class ApiClient {
       body: jsonEncode({
         'senderId': senderId,
         'text': text,
+<<<<<<< HEAD
         'replyToMessageId': replyToMessageId,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       }),
     );
     _check(response);
     return ChatMessage.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
   }
 
+<<<<<<< HEAD
   Future<void> deleteMessageForMe({
     required String messageId,
     required String userId,
@@ -1061,6 +1168,8 @@ class ApiClient {
     return ChatMessage.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
   }
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   void _check(http.Response response) {
     if (response.statusCode < 200 || response.statusCode >= 300) {
       throw Exception('API ${response.statusCode}: ${response.body}');
@@ -1071,7 +1180,11 @@ class ApiClient {
 class AppState {
   AppState({required this.user, required this.groups});
 
+<<<<<<< HEAD
   Member user;
+=======
+  final Member user;
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   final List<CrewGroup> groups;
 
   List<Activity> get activities {
@@ -1096,7 +1209,10 @@ class AppState {
   }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -1105,6 +1221,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
+<<<<<<< HEAD
   final api = ApiClient();
   final nameController = TextEditingController(text: 'Cosmin');
   final emailController = TextEditingController(text: 'cosmin@example.com');
@@ -1114,17 +1231,24 @@ class LoginScreenState extends State<LoginScreen> {
   AuthMode mode = AuthMode.login;
   bool loading = false;
   String? authError;
+=======
+  AppLanguage language = AppLanguage.en;
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
   AppText get t => AppText(language);
 
   void toggleLanguage() {
     setState(() {
       language = language == AppLanguage.en ? AppLanguage.ro : AppLanguage.en;
+<<<<<<< HEAD
       authError = null;
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     });
   }
 
   @override
+<<<<<<< HEAD
   void dispose() {
     nameController.dispose();
     emailController.dispose();
@@ -1251,6 +1375,10 @@ class LoginScreenState extends State<LoginScreen> {
     final subtitle = language == AppLanguage.ro
         ? 'Conectează-te ca să creezi grupuri, ieșiri și chat-uri cu prietenii.'
         : 'Sign in to create groups, outings and chats with your friends.';
+=======
+  Widget build(BuildContext context) {
+    final accent = Theme.of(context).colorScheme.primary;
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
     return Scaffold(
       appBar: AppBar(
@@ -1265,6 +1393,7 @@ class LoginScreenState extends State<LoginScreen> {
         child: ListView(
           padding: const EdgeInsets.all(24),
           children: [
+<<<<<<< HEAD
             const SizedBox(height: 20),
             Center(
               child: Container(
@@ -1435,6 +1564,51 @@ class LoginScreenState extends State<LoginScreen> {
               subtitle: language == AppLanguage.ro
                   ? 'Google este demo acum. Pentru producție conectăm Firebase/Google OAuth.'
                   : 'Google is demo for now. For production we connect Firebase/Google OAuth.',
+=======
+            const SizedBox(height: 40),
+            Center(
+              child: Container(
+                width: 96,
+                height: 96,
+                decoration: BoxDecoration(
+                  color: accent.withOpacity(0.14),
+                  borderRadius: BorderRadius.circular(32),
+                ),
+                child: Icon(Icons.forum_rounded, color: accent, size: 54),
+              ),
+            ),
+            const SizedBox(height: 28),
+            const Center(
+              child: Text(
+                'CrewHub',
+                style: TextStyle(fontSize: 45, fontWeight: FontWeight.w900),
+              ),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              t.loginSubtitle,
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white.withOpacity(0.72), height: 1.45),
+            ),
+            const SizedBox(height: 48),
+            InfoCard(icon: Icons.chat_rounded, title: t.groupChat, subtitle: t.groupChatSubtitle),
+            const SizedBox(height: 12),
+            InfoCard(icon: Icons.rule_rounded, title: t.businessLogic, subtitle: t.businessLogicSubtitle),
+            const SizedBox(height: 12),
+            InfoCard(icon: Icons.api_rounded, title: t.localBackend, subtitle: ApiConfig.baseUrl),
+            const SizedBox(height: 28),
+            FilledButton(
+              style: FilledButton.styleFrom(minimumSize: const Size.fromHeight(56)),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => HomeScreen(initialLanguage: language),
+                  ),
+                );
+              },
+              child: Text(t.enterApp),
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
             ),
           ],
         ),
@@ -1443,7 +1617,10 @@ class LoginScreenState extends State<LoginScreen> {
   }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.initialLanguage});
 
@@ -1493,12 +1670,15 @@ class HomeScreenState extends State<HomeScreen> {
         data = AppState(user: user, groups: groups);
         loading = false;
       });
+<<<<<<< HEAD
 
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) {
           maybeShowCityOnboarding();
         }
       });
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     } catch (exception) {
       if (!mounted) return;
       setState(() {
@@ -1548,6 +1728,7 @@ class HomeScreenState extends State<HomeScreen> {
     }
   }
 
+<<<<<<< HEAD
   void updateCurrentUser(Member user) {
     final current = data;
     if (current == null) return;
@@ -1580,6 +1761,8 @@ class HomeScreenState extends State<HomeScreen> {
     );
   }
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   void replaceMessages(String groupId, List<ChatMessage> messages) {
     final current = data;
     if (current == null) return;
@@ -1640,12 +1823,20 @@ class HomeScreenState extends State<HomeScreen> {
         onActivityUpdated: replaceActivity,
       );
     } else {
+<<<<<<< HEAD
       body = ProfileView(user: appData.user, t: t, api: api, onUserUpdated: updateCurrentUser);
+=======
+      body = ProfileView(user: appData.user, t: t);
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     }
 
     return Scaffold(
       appBar: AppBar(
+<<<<<<< HEAD
         title: const Text('CrewHub V25', style: TextStyle(fontWeight: FontWeight.w900)),
+=======
+        title: const Text('CrewHub V7', style: TextStyle(fontWeight: FontWeight.w900)),
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
         actions: [
           TextButton(
             onPressed: toggleLanguage,
@@ -1674,6 +1865,7 @@ class HomeScreenState extends State<HomeScreen> {
   }
 }
 
+<<<<<<< HEAD
 
 class CityOnboardingDialog extends StatefulWidget {
   const CityOnboardingDialog({
@@ -1862,6 +2054,8 @@ class CityOnboardingDialogState extends State<CityOnboardingDialog> {
 }
 
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class BackendErrorScreen extends StatelessWidget {
   const BackendErrorScreen({
     super.key,
@@ -2192,6 +2386,7 @@ class ActivitiesView extends StatelessWidget {
   }
 }
 
+<<<<<<< HEAD
 
 class ProfileView extends StatefulWidget {
   const ProfileView({
@@ -2564,12 +2759,35 @@ class ProfileViewState extends State<ProfileView> {
         InfoCard(icon: Icons.api_rounded, title: widget.t.api, subtitle: ApiConfig.baseUrl),
         const SizedBox(height: 12),
         InfoCard(icon: Icons.save_rounded, title: widget.t.persistence, subtitle: widget.t.persistenceSubtitle),
+=======
+class ProfileView extends StatelessWidget {
+  const ProfileView({super.key, required this.user, required this.t});
+
+  final Member user;
+  final AppText t;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      padding: const EdgeInsets.all(16),
+      children: [
+        PageTitle(title: t.profile, subtitle: t.profileSubtitle),
+        const SizedBox(height: 14),
+        InfoCard(icon: Icons.person_rounded, title: user.name, subtitle: user.username),
+        const SizedBox(height: 12),
+        InfoCard(icon: Icons.api_rounded, title: t.api, subtitle: ApiConfig.baseUrl),
+        const SizedBox(height: 12),
+        InfoCard(icon: Icons.save_rounded, title: t.persistence, subtitle: t.persistenceSubtitle),
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       ],
     );
   }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class GroupDetailsScreen extends StatefulWidget {
   const GroupDetailsScreen({
     super.key,
@@ -2623,6 +2841,7 @@ class GroupDetailsScreenState extends State<GroupDetailsScreen> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+<<<<<<< HEAD
           InfoCard(
             icon: categoryIcon(group.category),
             title: group.name,
@@ -2633,6 +2852,9 @@ class GroupDetailsScreenState extends State<GroupDetailsScreen> {
               widget.t.members(group.members.length),
             ].join(' • '),
           ),
+=======
+          InfoCard(icon: categoryIcon(group.category), title: group.name, subtitle: '${widget.t.categoryLabel(group.category)} • ${widget.t.members(group.members.length)}'),
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
           const SizedBox(height: 12),
           Text(group.description),
           const SizedBox(height: 14),
@@ -2721,7 +2943,10 @@ class GroupDetailsScreenState extends State<GroupDetailsScreen> {
   }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class ChatScreen extends StatefulWidget {
   const ChatScreen({
     super.key,
@@ -2745,13 +2970,19 @@ class ChatScreen extends StatefulWidget {
 class ChatScreenState extends State<ChatScreen> {
   final controller = TextEditingController();
   List<ChatMessage> messages = [];
+<<<<<<< HEAD
   ChatMessage? replyTarget;
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   bool loading = true;
   bool sending = false;
   String? error;
 
+<<<<<<< HEAD
   static const quickEmojis = ['❤️', '😂', '🔥', '👍', '😮', '👏'];
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   @override
   void initState() {
     super.initState();
@@ -2765,6 +2996,7 @@ class ChatScreenState extends State<ChatScreen> {
     super.dispose();
   }
 
+<<<<<<< HEAD
   ChatMessage? messageById(String? id) {
     if (id == null) return null;
 
@@ -2783,6 +3015,11 @@ class ChatScreenState extends State<ChatScreen> {
   Future<void> loadMessages() async {
     try {
       final loaded = await widget.api.getMessages(widget.group.id, widget.user.id);
+=======
+  Future<void> loadMessages() async {
+    try {
+      final loaded = await widget.api.getMessages(widget.group.id);
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       if (!mounted) return;
       setState(() {
         messages = loaded;
@@ -2812,14 +3049,20 @@ class ChatScreenState extends State<ChatScreen> {
         groupId: widget.group.id,
         senderId: widget.user.id,
         text: text,
+<<<<<<< HEAD
         replyToMessageId: replyTarget?.id,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       );
 
       controller.clear();
 
       setState(() {
         messages.add(message);
+<<<<<<< HEAD
         replyTarget = null;
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
         sending = false;
       });
 
@@ -2836,6 +3079,7 @@ class ChatScreenState extends State<ChatScreen> {
     }
   }
 
+<<<<<<< HEAD
   Future<void> reactToMessage(ChatMessage message, String emoji) async {
     try {
       final updated = await widget.api.toggleMessageReaction(
@@ -2977,6 +3221,8 @@ class ChatScreenState extends State<ChatScreen> {
     }
   }
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   @override
   Widget build(BuildContext context) {
     final sorted = [...messages];
@@ -3005,6 +3251,7 @@ class ChatScreenState extends State<ChatScreen> {
                 final message = sorted[index];
                 final isMe = message.senderId == widget.user.id;
                 final sender = widget.group.memberById(message.senderId);
+<<<<<<< HEAD
                 final replyTo = messageById(message.replyToMessageId);
 
                 return ChatBubble(
@@ -3015,10 +3262,18 @@ class ChatScreenState extends State<ChatScreen> {
                   senderAvatarData: isMe ? widget.user.avatarData : (sender?.avatarData ?? ''),
                   isMe: isMe,
                   onLongPressAt: (position) => showMessageActions(message, position),
+=======
+
+                return ChatBubble(
+                  message: message,
+                  senderName: sender?.name ?? widget.t.system,
+                  isMe: isMe,
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
                 );
               },
             ),
           ),
+<<<<<<< HEAD
           if (replyTarget != null)
             Container(
               margin: const EdgeInsets.fromLTRB(12, 4, 12, 0),
@@ -3050,6 +3305,8 @@ class ChatScreenState extends State<ChatScreen> {
                 ],
               ),
             ),
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
           SafeArea(
             top: false,
             child: Padding(
@@ -3081,7 +3338,10 @@ class ChatScreenState extends State<ChatScreen> {
   }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class ActivityDetailsScreen extends StatefulWidget {
   const ActivityDetailsScreen({
     super.key,
@@ -3177,6 +3437,7 @@ class ActivityDetailsScreenState extends State<ActivityDetailsScreen> {
           InfoCard(
             icon: Icons.location_on_rounded,
             title: activity.location,
+<<<<<<< HEAD
             subtitle: [activity.city, activity.county, activity.region, activity.country]
                 .where((item) => item.trim().isNotEmpty)
                 .join(' • '),
@@ -3186,6 +3447,9 @@ class ActivityDetailsScreenState extends State<ActivityDetailsScreen> {
             icon: Icons.schedule_rounded,
             title: longDate(activity.dateTime),
             subtitle: widget.t.dateAndTime,
+=======
+            subtitle: longDate(activity.dateTime),
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
           ),
           const SizedBox(height: 12),
           LinearProgressIndicator(value: progress),
@@ -3231,8 +3495,11 @@ class ActivityDetailsScreenState extends State<ActivityDetailsScreen> {
   }
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class CreateGroupScreen extends StatefulWidget {
   const CreateGroupScreen({super.key, required this.api, required this.t});
 
@@ -3244,6 +3511,7 @@ class CreateGroupScreen extends StatefulWidget {
 }
 
 class CreateGroupScreenState extends State<CreateGroupScreen> {
+<<<<<<< HEAD
   final nameController = TextEditingController();
   final descriptionController = TextEditingController();
   final citySearchController = TextEditingController();
@@ -3290,10 +3558,23 @@ class CreateGroupScreenState extends State<CreateGroupScreen> {
     descriptionController.dispose();
     citySearchController.dispose();
     locationController.dispose();
+=======
+  final formKey = GlobalKey<FormState>();
+  final nameController = TextEditingController();
+  final descriptionController = TextEditingController();
+  GroupCategory category = GroupCategory.social;
+  bool saving = false;
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    descriptionController.dispose();
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     super.dispose();
   }
 
   Future<void> submit() async {
+<<<<<<< HEAD
     if (nameController.text.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(widget.t.addName)),
@@ -3307,6 +3588,10 @@ class CreateGroupScreenState extends State<CreateGroupScreen> {
       );
       return;
     }
+=======
+    final form = formKey.currentState;
+    if (form == null || !form.validate()) return;
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
     setState(() {
       saving = true;
@@ -3317,6 +3602,7 @@ class CreateGroupScreenState extends State<CreateGroupScreen> {
         name: nameController.text.trim(),
         description: descriptionController.text.trim(),
         category: category,
+<<<<<<< HEAD
         socialSubtype: '',
         country: 'Romania',
         city: selectedCity.trim(),
@@ -3335,6 +3621,17 @@ class CreateGroupScreenState extends State<CreateGroupScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('${widget.t.error}: $exception')),
       );
+=======
+      );
+      if (!mounted) return;
+      Navigator.pop(context, group);
+    } catch (exception) {
+      setState(() {
+        saving = false;
+      });
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${widget.t.error}: $exception')));
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     }
   }
 
@@ -3344,6 +3641,7 @@ class CreateGroupScreenState extends State<CreateGroupScreen> {
       appBar: AppBar(
         title: Text(widget.t.createGroupTitle),
       ),
+<<<<<<< HEAD
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -3472,12 +3770,56 @@ class CreateGroupScreenState extends State<CreateGroupScreen> {
             child: Text(saving ? widget.t.saving : widget.t.createGroupTitle),
           ),
         ],
+=======
+      body: Form(
+        key: formKey,
+        child: ListView(
+          padding: const EdgeInsets.all(16),
+          children: [
+            PageTitle(title: widget.t.newGroup, subtitle: widget.t.savedInBackend),
+            const SizedBox(height: 16),
+            TextFormField(
+              controller: nameController,
+              decoration: InputDecoration(labelText: widget.t.groupName),
+              validator: (value) => value == null || value.trim().isEmpty ? widget.t.addName : null,
+            ),
+            const SizedBox(height: 12),
+            TextFormField(
+              controller: descriptionController,
+              minLines: 3,
+              maxLines: 5,
+              decoration: InputDecoration(labelText: widget.t.description),
+            ),
+            const SizedBox(height: 16),
+            DropdownButtonFormField<GroupCategory>(
+              value: category,
+              items: GroupCategory.values.map((item) {
+                return DropdownMenuItem(value: item, child: Text(widget.t.categoryLabel(item)));
+              }).toList(),
+              onChanged: (value) {
+                if (value == null) return;
+                setState(() {
+                  category = value;
+                });
+              },
+            ),
+            const SizedBox(height: 24),
+            FilledButton(
+              onPressed: saving ? null : submit,
+              child: Text(saving ? widget.t.saving : widget.t.createGroup),
+            ),
+          ],
+        ),
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       ),
     );
   }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class CreateActivityScreen extends StatefulWidget {
   const CreateActivityScreen({super.key, required this.api, required this.group, required this.t});
 
@@ -3497,11 +3839,14 @@ class CreateActivityScreenState extends State<CreateActivityScreen> {
   final minController = TextEditingController(text: '4');
   final maxController = TextEditingController(text: '10');
   final costController = TextEditingController(text: '0');
+<<<<<<< HEAD
   final cityController = TextEditingController();
   List<RomaniaRegion> regions = [];
   RomaniaRegion? selectedRegion;
   String? selectedCounty;
   bool loadingRegions = true;
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   String sportType = 'none';
   late GroupCategory category;
   DateTime dateTime = DateTime.now().add(const Duration(days: 1));
@@ -3512,6 +3857,7 @@ class CreateActivityScreenState extends State<CreateActivityScreen> {
     super.initState();
     category = widget.group.category;
     sportType = category == GroupCategory.sport ? 'football' : 'none';
+<<<<<<< HEAD
     loadRomaniaRegions();
   }
 
@@ -3533,6 +3879,8 @@ class CreateActivityScreenState extends State<CreateActivityScreen> {
         loadingRegions = false;
       });
     }
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   }
 
   @override
@@ -3543,7 +3891,10 @@ class CreateActivityScreenState extends State<CreateActivityScreen> {
     minController.dispose();
     maxController.dispose();
     costController.dispose();
+<<<<<<< HEAD
     cityController.dispose();
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     super.dispose();
   }
 
@@ -3621,10 +3972,13 @@ class CreateActivityScreenState extends State<CreateActivityScreen> {
         category: category,
         sportType: sportType,
         location: locationController.text.trim(),
+<<<<<<< HEAD
         country: 'Romania',
         region: selectedRegion?.name ?? 'București-Ilfov',
         county: selectedCounty ?? 'București',
         city: cityController.text.trim(),
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
         description: descriptionController.text.trim(),
         dateTime: dateTime,
         minParticipants: min,
@@ -3665,6 +4019,7 @@ class CreateActivityScreenState extends State<CreateActivityScreen> {
             const SizedBox(height: 12),
             TextFormField(controller: locationController, decoration: InputDecoration(labelText: widget.t.location)),
             const SizedBox(height: 12),
+<<<<<<< HEAD
             InfoCard(
               icon: Icons.flag_rounded,
               title: 'Romania',
@@ -3708,6 +4063,8 @@ class CreateActivityScreenState extends State<CreateActivityScreen> {
               ),
             ],
             const SizedBox(height: 12),
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
             TextFormField(
               controller: descriptionController,
               minLines: 3,
@@ -3824,6 +4181,7 @@ class ChatPreviewTile extends StatelessWidget {
   }
 }
 
+<<<<<<< HEAD
 
 
 class ProfileMiniAvatar extends StatelessWidget {
@@ -3878,10 +4236,13 @@ class ProfileMiniAvatar extends StatelessWidget {
   }
 }
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class ChatBubble extends StatelessWidget {
   const ChatBubble({
     super.key,
     required this.message,
+<<<<<<< HEAD
     required this.replyToMessage,
     required this.replyToSenderName,
     required this.senderName,
@@ -3897,11 +4258,21 @@ class ChatBubble extends StatelessWidget {
   final String senderAvatarData;
   final bool isMe;
   final void Function(Offset position) onLongPressAt;
+=======
+    required this.senderName,
+    required this.isMe,
+  });
+
+  final ChatMessage message;
+  final String senderName;
+  final bool isMe;
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
   @override
   Widget build(BuildContext context) {
     final color = isMe ? Theme.of(context).colorScheme.primaryContainer : const Color(0xFF101B2F);
     final textColor = isMe ? Colors.black : Colors.white;
+<<<<<<< HEAD
     final reactions = message.reactionSummary.entries.toList();
 
     final bubble = GestureDetector(
@@ -4029,12 +4400,37 @@ class ChatBubble extends StatelessWidget {
             avatar,
           ],
         ],
+=======
+
+    return Align(
+      alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
+      child: Container(
+        constraints: const BoxConstraints(maxWidth: 310),
+        margin: const EdgeInsets.symmetric(vertical: 5),
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(18),
+        ),
+        child: Column(
+          crossAxisAlignment: isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(senderName, style: TextStyle(fontSize: 12, color: textColor.withOpacity(0.7))),
+            const SizedBox(height: 4),
+            Text(message.text, style: TextStyle(color: textColor)),
+          ],
+        ),
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       ),
     );
   }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class GroupTile extends StatelessWidget {
   const GroupTile({
     super.key,
@@ -4057,6 +4453,7 @@ class GroupTile extends StatelessWidget {
         title: Text(group.name, style: const TextStyle(fontWeight: FontWeight.w900)),
         subtitle: Text(
           next == null
+<<<<<<< HEAD
               ? [
                   t.categoryLabel(group.category),
                   if (group.city.trim().isNotEmpty) group.city,
@@ -4069,6 +4466,10 @@ class GroupTile extends StatelessWidget {
                   if (group.location.trim().isNotEmpty) group.location,
                   next.title,
                 ].join(' • '),
+=======
+              ? '${t.categoryLabel(group.category)} • ${t.members(group.members.length)}'
+              : '${t.categoryLabel(group.category)} • ${next.title}',
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
         ),
         trailing: const Icon(Icons.chevron_right_rounded),
         onTap: onTap,
@@ -4098,7 +4499,11 @@ class ActivityTile extends StatelessWidget {
         leading: Icon(categoryIcon(activity.category), color: Theme.of(context).colorScheme.primary),
         title: Text(activity.title, style: const TextStyle(fontWeight: FontWeight.w900)),
         subtitle: Text(
+<<<<<<< HEAD
           '${group.name} • ${activity.county} • ${shortDate(activity.dateTime)} • ${activity.goingCount}/${activity.maxParticipants} ${t.going.toLowerCase()}',
+=======
+          '${group.name} • ${shortDate(activity.dateTime)} • ${activity.goingCount}/${activity.maxParticipants} ${t.going.toLowerCase()}',
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
         ),
         trailing: Chip(label: Text(t.activityStatusLabel(activity.business.status))),
         onTap: onTap,
