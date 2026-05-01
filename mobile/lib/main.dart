@@ -1,7 +1,15 @@
 import 'dart:convert';
+<<<<<<< HEAD
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:file_picker/file_picker.dart';
+=======
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 import 'package:http/http.dart' as http;
 
 void main() {
@@ -17,7 +25,11 @@ class CrewHubApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+<<<<<<< HEAD
+      title: 'CrewHub V25',
+=======
       title: 'CrewHub V7',
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       themeMode: ThemeMode.dark,
       theme: ThemeData(
         useMaterial3: true,
@@ -61,12 +73,37 @@ class ApiConfig {
 
 enum AppLanguage { en, ro }
 
+<<<<<<< HEAD
+enum AuthMode { login, register }
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 enum GroupCategory { sport, social, travel, gaming, study, work, family, custom }
 
 enum RsvpStatus { going, maybe, notGoing, reserve }
 
 enum ActivityStatus { needsPlayers, open, confirmed, full }
 
+<<<<<<< HEAD
+class RomaniaRegion {
+  RomaniaRegion({required this.id, required this.name, required this.counties});
+  final String id;
+  final String name;
+  final List<String> counties;
+
+  factory RomaniaRegion.fromJson(Map<String, dynamic> json) {
+    final rawCounties = json['counties'];
+    final list = rawCounties is List ? rawCounties : <dynamic>[];
+    return RomaniaRegion(
+      id: json['id']?.toString() ?? '',
+      name: json['name']?.toString() ?? '',
+      counties: list.map((item) => item.toString()).toList(),
+    );
+  }
+}
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class AppText {
   const AppText(this.language);
 
@@ -75,7 +112,25 @@ class AppText {
   bool get isRo => language == AppLanguage.ro;
 
   String get toggleLabel => isRo ? 'EN' : 'RO';
+<<<<<<< HEAD
+  String get appTitle => 'CrewHub V25';
+  String get validEmail => isRo ? 'Introdu un email valid, de exemplu nume@gmail.com.' : 'Enter a valid email address, for example name@gmail.com.';
+  String get invalidCredentials => isRo ? 'Emailul sau parola sunt greșite.' : 'Wrong email or password.';
+
+  String get chooseCitiesTitle => isRo ? 'Alege orașele tale' : 'Choose your cities';
+  String get chooseCitiesSubtitle => isRo
+      ? 'Momentan CrewHub este disponibil doar pentru România. Alege cel puțin un oraș ca să continuăm.'
+      : 'For now CrewHub is available only in Romania. Choose at least one city to continue.';
+  String get searchCity => isRo ? 'Caută oraș' : 'Search city';
+  String get selectedCities => isRo ? 'Orașe selectate' : 'Selected cities';
+  String get continueLabel => isRo ? 'Continuă' : 'Continue';
+  String get selectAtLeastOneCity => isRo
+      ? 'Alege cel puțin un oraș.'
+      : 'Select at least one city.';
+  String get noCitiesFound => isRo ? 'Nu am găsit orașe.' : 'No cities found.';
+=======
   String get appTitle => 'CrewHub V7';
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
   String get loginSubtitle => isRo
       ? 'Messenger pentru grupuri + planificator de ieșiri, sport și activități.'
@@ -132,6 +187,28 @@ class AppText {
       ? 'Fotbal, volei, gaming, excursii și alte planuri.'
       : 'Football, volleyball, gaming, trips and other plans.';
   String get profileSubtitle => isRo ? 'Utilizator demo.' : 'Demo user.';
+<<<<<<< HEAD
+  String get editProfile => isRo ? 'Editează profilul' : 'Edit profile';
+  String get profilePhoto => isRo ? 'Poză de profil' : 'Profile photo';
+  String get chooseFromGallery => isRo ? 'Alege din galerie' : 'Choose from gallery';
+  String get removePhoto => isRo ? 'Șterge poza' : 'Remove photo';
+  String get gender => isRo ? 'Sex / gen' : 'Sex / gender';
+  String get genderNotSet => isRo ? 'Nesetat' : 'Not set';
+  String get genderMale => isRo ? 'Masculin' : 'Male';
+  String get genderFemale => isRo ? 'Feminin' : 'Female';
+  String get genderOther => isRo ? 'Altul' : 'Other';
+  String get genderPreferNot => isRo ? 'Prefer să nu spun' : 'Prefer not to say';
+  String get bio => isRo ? 'Biografie' : 'Biography';
+  String get bioHint => isRo ? 'Scrie câteva lucruri despre tine...' : 'Write a few things about yourself...';
+  String get socialProfiles => isRo ? 'Profiluri personale' : 'Personal profiles';
+  String get saveProfile => isRo ? 'Salvează profilul' : 'Save profile';
+  String get profileSaved => isRo ? 'Profil salvat' : 'Profile saved';
+  String get logout => isRo ? 'Deconectare' : 'Log out';
+  String get logoutQuestion => isRo ? 'Sigur vrei să te deconectezi?' : 'Are you sure you want to log out?';
+  String get cancel => isRo ? 'Anulează' : 'Cancel';
+  String get noBio => isRo ? 'Fără biografie încă.' : 'No biography yet.';
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   String get api => 'API';
   String get persistence => isRo ? 'Persistență' : 'Persistence';
   String get persistenceSubtitle => isRo
@@ -147,6 +224,15 @@ class AppText {
   String get noMessagesYet => isRo ? 'Niciun mesaj încă.' : 'No messages yet.';
   String get writeMessage => isRo ? 'Scrie un mesaj...' : 'Write a message...';
   String get system => isRo ? 'Sistem' : 'System';
+<<<<<<< HEAD
+  String get addReaction => isRo ? 'Adaugă reacție' : 'Add reaction';
+  String get deleteForMe => isRo ? 'Șterge pentru tine' : 'Delete for you';
+  String get reply => isRo ? 'Răspunde' : 'Reply';
+  String get messageDeletedForMe => isRo ? 'Mesaj șters pentru tine' : 'Message deleted for you';
+  String replyingTo(String name) => isRo ? 'Răspunzi lui $name' : 'Replying to $name';
+  String get cancelReply => isRo ? 'Anulează reply' : 'Cancel reply';
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
   String get status => 'Status';
   String minMax(int min, int max) => isRo ? 'Minim $min, maxim $max' : 'Minimum $min, maximum $max';
@@ -168,6 +254,21 @@ class AppText {
   String get groupName => isRo ? 'Nume grup' : 'Group name';
   String get addName => isRo ? 'Adaugă un nume.' : 'Add a name.';
   String get description => isRo ? 'Descriere' : 'Description';
+<<<<<<< HEAD
+  String get category => isRo ? 'Categorie' : 'Category';
+  String get groupCity => isRo ? 'Orașul' : 'City';
+  String get groupLocation => isRo ? 'Locație' : 'Location';
+  String get groupLocationHint => isRo ? 'Exemplu: strada, școala, terenul, sala...' : 'Example: street, school, field, venue...';
+  String get chooseGroupCity => isRo ? 'Alege orașul grupului.' : 'Choose the group city.';
+  String get socialSubtype => isRo ? 'Subcategorie Social' : 'Social subcategory';
+  String get socialGeneral => isRo ? 'General' : 'General';
+  String get socialCity => isRo ? 'Oraș' : 'City';
+  String get cityGroupSection => isRo ? 'Oraș' : 'City';
+  String get exactLocation => isRo ? 'Locație' : 'Location';
+  String get exactLocationHint => isRo ? 'Exemplu: Copou, Centru, Iulius Mall...' : 'Example: city center, park, mall...';
+  String get selectCityForGroup => isRo ? 'Alege orașul grupului.' : 'Choose the group city.';
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   String get saving => isRo ? 'Se salvează...' : 'Saving...';
 
   String get createOutingTitle => isRo ? 'Creează ieșire' : 'Create outing';
@@ -175,6 +276,14 @@ class AppText {
   String get title => isRo ? 'Titlu' : 'Title';
   String get addTitle => isRo ? 'Adaugă un titlu.' : 'Add a title.';
   String get location => isRo ? 'Locație' : 'Location';
+<<<<<<< HEAD
+  String get country => isRo ? 'Țară' : 'Country';
+  String get region => isRo ? 'Regiune' : 'Region';
+  String get county => isRo ? 'Județ' : 'County';
+  String get city => isRo ? 'Oraș' : 'City';
+  String get cityHint => isRo ? 'Exemplu: Iași, Cluj-Napoca, București' : 'Example: Iași, Cluj-Napoca, Bucharest';
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   String get minParticipants => isRo ? 'Minim participanți' : 'Minimum participants';
   String get maxParticipants => isRo ? 'Maxim participanți' : 'Maximum participants';
   String get invalidNumber => isRo ? 'Număr invalid.' : 'Invalid number.';
@@ -370,17 +479,72 @@ class Member {
     required this.id,
     required this.name,
     required this.username,
+<<<<<<< HEAD
+    required this.selectedCities,
+    required this.gender,
+    required this.bio,
+    required this.avatarData,
+    required this.socialLinks,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   });
 
   final String id;
   final String name;
   final String username;
+<<<<<<< HEAD
+  final List<String> selectedCities;
+  final String gender;
+  final String bio;
+  final String avatarData;
+  final Map<String, String> socialLinks;
 
   factory Member.fromJson(Map<String, dynamic> json) {
+    final rawCities = json['selectedCities'];
+    final cities = rawCities is List ? rawCities : <dynamic>[];
+
+    final rawLinks = json['socialLinks'];
+    final linksMap = rawLinks is Map ? rawLinks : <dynamic, dynamic>{};
+
+=======
+
+  factory Member.fromJson(Map<String, dynamic> json) {
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     return Member(
       id: json['id']?.toString() ?? '',
       name: json['name']?.toString() ?? '',
       username: json['username']?.toString() ?? '',
+<<<<<<< HEAD
+      selectedCities: cities.map((item) => item.toString()).toList(),
+      gender: json['gender']?.toString() ?? '',
+      bio: json['bio']?.toString() ?? '',
+      avatarData: json['avatarData']?.toString() ?? '',
+      socialLinks: linksMap.map(
+        (key, value) => MapEntry(key.toString(), value?.toString() ?? ''),
+      ),
+    );
+  }
+}
+
+
+class ChatReaction {
+  ChatReaction({
+    required this.userId,
+    required this.emoji,
+    required this.createdAt,
+  });
+
+  final String userId;
+  final String emoji;
+  final DateTime createdAt;
+
+  factory ChatReaction.fromJson(Map<String, dynamic> json) {
+    return ChatReaction(
+      userId: json['userId']?.toString() ?? '',
+      emoji: json['emoji']?.toString() ?? '',
+      createdAt: DateTime.tryParse(json['createdAt']?.toString() ?? '')?.toLocal() ?? DateTime.now(),
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     );
   }
 }
@@ -393,6 +557,12 @@ class ChatMessage {
     required this.text,
     required this.createdAt,
     required this.type,
+<<<<<<< HEAD
+    required this.replyToMessageId,
+    required this.reactions,
+    required this.hiddenForUserIds,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   });
 
   final String id;
@@ -401,8 +571,27 @@ class ChatMessage {
   final String text;
   final DateTime createdAt;
   final String type;
+<<<<<<< HEAD
+  final String? replyToMessageId;
+  final List<ChatReaction> reactions;
+  final List<String> hiddenForUserIds;
 
   factory ChatMessage.fromJson(Map<String, dynamic> json) {
+    final rawReactions = json['reactions'];
+    final reactionList = rawReactions is List ? rawReactions : <dynamic>[];
+
+    final rawHidden = json['hiddenForUserIds'];
+    final hiddenList = rawHidden is List ? rawHidden : <dynamic>[];
+
+    final rawReplyId = json['replyToMessageId'];
+    final replyId = rawReplyId == null || rawReplyId.toString().trim().isEmpty
+        ? null
+        : rawReplyId.toString();
+
+=======
+
+  factory ChatMessage.fromJson(Map<String, dynamic> json) {
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     return ChatMessage(
       id: json['id']?.toString() ?? '',
       groupId: json['groupId']?.toString() ?? '',
@@ -410,8 +599,30 @@ class ChatMessage {
       text: json['text']?.toString() ?? '',
       createdAt: DateTime.tryParse(json['createdAt']?.toString() ?? '')?.toLocal() ?? DateTime.now(),
       type: json['type']?.toString() ?? 'text',
+<<<<<<< HEAD
+      replyToMessageId: replyId,
+      reactions: reactionList
+          .whereType<Map<String, dynamic>>()
+          .map(ChatReaction.fromJson)
+          .toList(),
+      hiddenForUserIds: hiddenList.map((item) => item.toString()).toList(),
     );
   }
+
+  Map<String, int> get reactionSummary {
+    final summary = <String, int>{};
+
+    for (final reaction in reactions) {
+      if (reaction.emoji.trim().isEmpty) continue;
+      summary[reaction.emoji] = (summary[reaction.emoji] ?? 0) + 1;
+    }
+
+    return summary;
+  }
+=======
+    );
+  }
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 }
 
 class ActivityResponse {
@@ -467,6 +678,13 @@ class Activity {
     required this.category,
     required this.sportType,
     required this.location,
+<<<<<<< HEAD
+    required this.country,
+    required this.region,
+    required this.county,
+    required this.city,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     required this.description,
     required this.dateTime,
     required this.minParticipants,
@@ -482,6 +700,13 @@ class Activity {
   final GroupCategory category;
   final String sportType;
   final String location;
+<<<<<<< HEAD
+  final String country;
+  final String region;
+  final String county;
+  final String city;
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   final String description;
   final DateTime dateTime;
   final int minParticipants;
@@ -501,6 +726,13 @@ class Activity {
       category: categoryFromString(json['category']?.toString() ?? 'social'),
       sportType: json['sportType']?.toString() ?? 'none',
       location: json['location']?.toString() ?? 'Location not set',
+<<<<<<< HEAD
+      country: json['country']?.toString() ?? 'Romania',
+      region: json['region']?.toString() ?? 'București-Ilfov',
+      county: json['county']?.toString() ?? 'București',
+      city: json['city']?.toString() ?? '',
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       description: json['description']?.toString() ?? '',
       dateTime: DateTime.tryParse(json['dateTime']?.toString() ?? '')?.toLocal() ?? DateTime.now(),
       minParticipants: int.tryParse(json['minParticipants']?.toString() ?? '') ?? 2,
@@ -531,6 +763,13 @@ class CrewGroup {
     required this.name,
     required this.description,
     required this.category,
+<<<<<<< HEAD
+    required this.socialSubtype,
+    required this.country,
+    required this.city,
+    required this.location,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     required this.members,
     required this.activities,
     required this.messages,
@@ -541,6 +780,13 @@ class CrewGroup {
   final String name;
   final String description;
   final GroupCategory category;
+<<<<<<< HEAD
+  final String socialSubtype;
+  final String country;
+  final String city;
+  final String location;
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   final List<Member> members;
   final List<Activity> activities;
   final List<ChatMessage> messages;
@@ -560,6 +806,13 @@ class CrewGroup {
       name: json['name']?.toString() ?? 'Group',
       description: json['description']?.toString() ?? '',
       category: categoryFromString(json['category']?.toString() ?? 'social'),
+<<<<<<< HEAD
+      socialSubtype: json['socialSubtype']?.toString() ?? '',
+      country: json['country']?.toString() ?? 'Romania',
+      city: json['city']?.toString() ?? '',
+      location: json['location']?.toString() ?? '',
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       members: members.whereType<Map<String, dynamic>>().map(Member.fromJson).toList(),
       activities: activities.whereType<Map<String, dynamic>>().map(Activity.fromJson).toList(),
       messages: messages.whereType<Map<String, dynamic>>().map(ChatMessage.fromJson).toList(),
@@ -594,6 +847,13 @@ class CrewGroup {
       name: name,
       description: description,
       category: category,
+<<<<<<< HEAD
+      socialSubtype: socialSubtype,
+      country: country,
+      city: city,
+      location: location,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       members: members,
       activities: activities,
       messages: newMessages,
@@ -603,6 +863,116 @@ class CrewGroup {
 }
 
 class ApiClient {
+<<<<<<< HEAD
+  Future<Member> registerWithEmail({
+    required String name,
+    required String email,
+    required String password,
+  }) async {
+    final response = await http.post(
+      Uri.parse('${ApiConfig.baseUrl}/auth/register'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'name': name,
+        'email': email,
+        'password': password,
+      }),
+    );
+
+    _check(response);
+    return Member.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+  }
+
+  Future<Member> loginWithEmail({
+    required String email,
+    required String password,
+  }) async {
+    final response = await http.post(
+      Uri.parse('${ApiConfig.baseUrl}/auth/login'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'email': email,
+        'password': password,
+      }),
+    );
+
+    _check(response);
+    return Member.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+  }
+
+  Future<Member> continueWithGoogleDemo() async {
+    final response = await http.post(
+      Uri.parse('${ApiConfig.baseUrl}/auth/google-demo'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({}),
+    );
+
+    _check(response);
+    return Member.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+  }
+
+  Future<void> logout() async {
+    try {
+      final response = await http.post(
+        Uri.parse('${ApiConfig.baseUrl}/auth/logout'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({}),
+      );
+
+      _check(response);
+    } catch (_) {
+      // Local demo: logout still returns to login even if backend is unavailable.
+    }
+  }
+
+  Future<List<String>> searchRomanianCities(String query) async {
+    final uri = Uri.parse('${ApiConfig.baseUrl}/locations/romania/cities')
+        .replace(queryParameters: {'search': query});
+
+    final response = await http.get(uri);
+    _check(response);
+
+    final decoded = jsonDecode(response.body) as Map<String, dynamic>;
+    final rawCities = decoded['cities'];
+    final list = rawCities is List ? rawCities : <dynamic>[];
+
+    return list.map((item) => item.toString()).toList();
+  }
+
+  Future<Member> saveSelectedCities(List<String> cities) async {
+    final response = await http.post(
+      Uri.parse('${ApiConfig.baseUrl}/users/me/cities'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({'cities': cities}),
+    );
+
+    _check(response);
+    return Member.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+  }
+
+  Future<Member> updateProfile({
+    required String gender,
+    required String bio,
+    required String avatarData,
+    required Map<String, String> socialLinks,
+  }) async {
+    final response = await http.patch(
+      Uri.parse('${ApiConfig.baseUrl}/users/me/profile'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'gender': gender,
+        'bio': bio,
+        'avatarData': avatarData,
+        'socialLinks': socialLinks,
+      }),
+    );
+
+    _check(response);
+    return Member.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+  }
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   Future<Member> getMe() async {
     final response = await http.get(Uri.parse('${ApiConfig.baseUrl}/me'));
     _check(response);
@@ -617,10 +987,29 @@ class ApiClient {
     return list.whereType<Map<String, dynamic>>().map(CrewGroup.fromJson).toList();
   }
 
+<<<<<<< HEAD
+  Future<List<RomaniaRegion>> getRomaniaRegions() async {
+    final response = await http.get(Uri.parse('${ApiConfig.baseUrl}/locations/romania'));
+    _check(response);
+    final decoded = jsonDecode(response.body) as Map<String, dynamic>;
+    final rawRegions = decoded['regions'];
+    final list = rawRegions is List ? rawRegions : <dynamic>[];
+    return list.whereType<Map<String, dynamic>>().map(RomaniaRegion.fromJson).toList();
+  }
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   Future<CrewGroup> createGroup({
     required String name,
     required String description,
     required GroupCategory category,
+<<<<<<< HEAD
+    required String socialSubtype,
+    required String country,
+    required String city,
+    required String location,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   }) async {
     final response = await http.post(
       Uri.parse('${ApiConfig.baseUrl}/groups'),
@@ -629,6 +1018,13 @@ class ApiClient {
         'name': name,
         'description': description,
         'category': categoryToString(category),
+<<<<<<< HEAD
+        'socialSubtype': socialSubtype,
+        'country': country,
+        'city': city,
+        'location': location,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       }),
     );
     _check(response);
@@ -641,6 +1037,13 @@ class ApiClient {
     required GroupCategory category,
     required String sportType,
     required String location,
+<<<<<<< HEAD
+    required String country,
+    required String region,
+    required String county,
+    required String city,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     required String description,
     required DateTime dateTime,
     required int minParticipants,
@@ -655,6 +1058,13 @@ class ApiClient {
         'category': categoryToString(category),
         'sportType': sportType,
         'location': location,
+<<<<<<< HEAD
+        'country': country,
+        'region': region,
+        'county': county,
+        'city': city,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
         'description': description,
         'dateTime': dateTime.toUtc().toIso8601String(),
         'minParticipants': minParticipants,
@@ -683,8 +1093,16 @@ class ApiClient {
     return Activity.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
   }
 
+<<<<<<< HEAD
+  Future<List<ChatMessage>> getMessages(String groupId, String userId) async {
+    final uri = Uri.parse('${ApiConfig.baseUrl}/groups/$groupId/messages')
+        .replace(queryParameters: {'userId': userId});
+
+    final response = await http.get(uri);
+=======
   Future<List<ChatMessage>> getMessages(String groupId) async {
     final response = await http.get(Uri.parse('${ApiConfig.baseUrl}/groups/$groupId/messages'));
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     _check(response);
     final decoded = jsonDecode(response.body);
     final list = decoded is List ? decoded : <dynamic>[];
@@ -695,6 +1113,10 @@ class ApiClient {
     required String groupId,
     required String senderId,
     required String text,
+<<<<<<< HEAD
+    String? replyToMessageId,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   }) async {
     final response = await http.post(
       Uri.parse('${ApiConfig.baseUrl}/groups/$groupId/messages'),
@@ -702,12 +1124,52 @@ class ApiClient {
       body: jsonEncode({
         'senderId': senderId,
         'text': text,
+<<<<<<< HEAD
+        'replyToMessageId': replyToMessageId,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       }),
     );
     _check(response);
     return ChatMessage.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
   }
 
+<<<<<<< HEAD
+  Future<void> deleteMessageForMe({
+    required String messageId,
+    required String userId,
+  }) async {
+    final response = await http.patch(
+      Uri.parse('${ApiConfig.baseUrl}/messages/$messageId/delete-for-me'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'userId': userId,
+      }),
+    );
+
+    _check(response);
+  }
+
+  Future<ChatMessage> toggleMessageReaction({
+    required String messageId,
+    required String userId,
+    required String emoji,
+  }) async {
+    final response = await http.patch(
+      Uri.parse('${ApiConfig.baseUrl}/messages/$messageId/reaction'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'userId': userId,
+        'emoji': emoji,
+      }),
+    );
+
+    _check(response);
+    return ChatMessage.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+  }
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   void _check(http.Response response) {
     if (response.statusCode < 200 || response.statusCode >= 300) {
       throw Exception('API ${response.statusCode}: ${response.body}');
@@ -718,7 +1180,11 @@ class ApiClient {
 class AppState {
   AppState({required this.user, required this.groups});
 
+<<<<<<< HEAD
+  Member user;
+=======
   final Member user;
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   final List<CrewGroup> groups;
 
   List<Activity> get activities {
@@ -743,6 +1209,10 @@ class AppState {
   }
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -751,19 +1221,164 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
+<<<<<<< HEAD
+  final api = ApiClient();
+  final nameController = TextEditingController(text: 'Cosmin');
+  final emailController = TextEditingController(text: 'cosmin@example.com');
+  final passwordController = TextEditingController(text: 'password123');
+
   AppLanguage language = AppLanguage.en;
+  AuthMode mode = AuthMode.login;
+  bool loading = false;
+  String? authError;
+=======
+  AppLanguage language = AppLanguage.en;
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
   AppText get t => AppText(language);
 
   void toggleLanguage() {
     setState(() {
       language = language == AppLanguage.en ? AppLanguage.ro : AppLanguage.en;
+<<<<<<< HEAD
+      authError = null;
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     });
+  }
+
+  @override
+<<<<<<< HEAD
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  Future<void> enterApp() async {
+    if (!mounted) return;
+
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (_) => HomeScreen(initialLanguage: language),
+      ),
+    );
+  }
+
+  bool isValidEmail(String email) {
+    final value = email.trim().toLowerCase();
+
+    if (value.length < 6 || value.length > 254) {
+      return false;
+    }
+
+    return RegExp(r'^[^\s@]+@[^\s@]+\.[^\s@]{2,}$').hasMatch(value);
+  }
+
+  Future<void> continueWithGoogle() async {
+    setState(() {
+      loading = true;
+    });
+
+    try {
+      await api.continueWithGoogleDemo();
+      await enterApp();
+    } catch (exception) {
+      setState(() {
+        loading = false;
+      });
+
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('${t.error}: $exception')),
+      );
+    }
+  }
+
+  Future<void> submitEmailAuth() async {
+    final name = nameController.text.trim();
+    final email = emailController.text.trim();
+    final password = passwordController.text;
+
+    setState(() {
+      authError = null;
+    });
+
+    if (email.isEmpty || password.isEmpty || (mode == AuthMode.register && name.isEmpty)) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            language == AppLanguage.ro
+                ? 'Completează toate câmpurile.'
+                : 'Please complete all fields.',
+          ),
+        ),
+      );
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      setState(() {
+        authError = t.validEmail;
+      });
+      return;
+    }
+
+    if (password.length < 6) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            language == AppLanguage.ro
+                ? 'Parola trebuie să aibă minim 6 caractere.'
+                : 'Password must have at least 6 characters.',
+          ),
+        ),
+      );
+      return;
+    }
+
+    setState(() {
+      loading = true;
+    });
+
+    try {
+      if (mode == AuthMode.login) {
+        await api.loginWithEmail(email: email, password: password);
+      } else {
+        await api.registerWithEmail(name: name, email: email, password: password);
+      }
+
+      await enterApp();
+    } catch (exception) {
+      if (!mounted) return;
+
+      setState(() {
+        loading = false;
+        authError = mode == AuthMode.login
+            ? t.invalidCredentials
+            : exception.toString().replaceFirst('Exception: ', '');
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final accent = Theme.of(context).colorScheme.primary;
+    final isRegister = mode == AuthMode.register;
+
+    final title = language == AppLanguage.ro
+        ? 'Bine ai venit în CrewHub'
+        : 'Welcome to CrewHub';
+
+    final subtitle = language == AppLanguage.ro
+        ? 'Conectează-te ca să creezi grupuri, ieșiri și chat-uri cu prietenii.'
+        : 'Sign in to create groups, outings and chats with your friends.';
+=======
+  Widget build(BuildContext context) {
+    final accent = Theme.of(context).colorScheme.primary;
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
     return Scaffold(
       appBar: AppBar(
@@ -778,6 +1393,178 @@ class LoginScreenState extends State<LoginScreen> {
         child: ListView(
           padding: const EdgeInsets.all(24),
           children: [
+<<<<<<< HEAD
+            const SizedBox(height: 20),
+            Center(
+              child: Container(
+                width: 92,
+                height: 92,
+                decoration: BoxDecoration(
+                  color: accent.withOpacity(0.14),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: Icon(Icons.forum_rounded, color: accent, size: 52),
+              ),
+            ),
+            const SizedBox(height: 24),
+            const Center(
+              child: Text(
+                'CrewHub',
+                style: TextStyle(fontSize: 42, fontWeight: FontWeight.w900),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w800),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              subtitle,
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white.withOpacity(0.72), height: 1.45),
+            ),
+            const SizedBox(height: 28),
+
+            FilledButton.icon(
+              style: FilledButton.styleFrom(minimumSize: const Size.fromHeight(54)),
+              onPressed: loading ? null : continueWithGoogle,
+              icon: const Icon(Icons.g_mobiledata_rounded, size: 32),
+              label: Text(
+                language == AppLanguage.ro
+                    ? 'Continuă cu Google'
+                    : 'Continue with Google',
+              ),
+            ),
+
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                const Expanded(child: Divider()),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: Text(
+                    language == AppLanguage.ro ? 'sau' : 'or',
+                    style: TextStyle(color: Colors.white.withOpacity(0.6)),
+                  ),
+                ),
+                const Expanded(child: Divider()),
+              ],
+            ),
+            const SizedBox(height: 16),
+
+            SegmentedButton<AuthMode>(
+              segments: [
+                ButtonSegment(
+                  value: AuthMode.login,
+                  label: Text(language == AppLanguage.ro ? 'Logare' : 'Login'),
+                  icon: const Icon(Icons.login_rounded),
+                ),
+                ButtonSegment(
+                  value: AuthMode.register,
+                  label: Text(language == AppLanguage.ro ? 'Înregistrare' : 'Register'),
+                  icon: const Icon(Icons.person_add_alt_1_rounded),
+                ),
+              ],
+              selected: {mode},
+              onSelectionChanged: loading
+                  ? null
+                  : (selection) {
+                      setState(() {
+                        mode = selection.first;
+                        authError = null;
+                      });
+                    },
+            ),
+
+            const SizedBox(height: 16),
+
+            if (isRegister) ...[
+              TextField(
+                controller: nameController,
+                decoration: InputDecoration(
+                  labelText: language == AppLanguage.ro ? 'Nume' : 'Name',
+                  prefixIcon: const Icon(Icons.person_rounded),
+                ),
+              ),
+              const SizedBox(height: 12),
+            ],
+
+            TextField(
+              controller: emailController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                labelText: language == AppLanguage.ro ? 'Email' : 'Email',
+                prefixIcon: const Icon(Icons.email_rounded),
+              ),
+              onChanged: (_) {
+                if (authError != null) {
+                  setState(() {
+                    authError = null;
+                  });
+                }
+              },
+            ),
+            const SizedBox(height: 12),
+
+            TextField(
+              controller: passwordController,
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: language == AppLanguage.ro ? 'Parolă' : 'Password',
+                prefixIcon: const Icon(Icons.lock_rounded),
+              ),
+              onChanged: (_) {
+                if (authError != null) {
+                  setState(() {
+                    authError = null;
+                  });
+                }
+              },
+            ),
+
+            if (authError != null) ...[
+              const SizedBox(height: 10),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Icon(Icons.error_outline_rounded, color: Colors.redAccent, size: 18),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      authError!,
+                      style: const TextStyle(
+                        color: Colors.redAccent,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+
+            const SizedBox(height: 18),
+            FilledButton(
+              style: FilledButton.styleFrom(minimumSize: const Size.fromHeight(54)),
+              onPressed: loading ? null : submitEmailAuth,
+              child: Text(
+                loading
+                    ? (language == AppLanguage.ro ? 'Se încarcă...' : 'Loading...')
+                    : isRegister
+                        ? (language == AppLanguage.ro ? 'Creează cont' : 'Create account')
+                        : (language == AppLanguage.ro ? 'Loghează-te' : 'Log in'),
+              ),
+            ),
+
+            const SizedBox(height: 16),
+            InfoCard(
+              icon: Icons.info_outline_rounded,
+              title: language == AppLanguage.ro ? 'Demo local' : 'Local demo',
+              subtitle: language == AppLanguage.ro
+                  ? 'Google este demo acum. Pentru producție conectăm Firebase/Google OAuth.'
+                  : 'Google is demo for now. For production we connect Firebase/Google OAuth.',
+=======
             const SizedBox(height: 40),
             Center(
               child: Container(
@@ -821,6 +1608,7 @@ class LoginScreenState extends State<LoginScreen> {
                 );
               },
               child: Text(t.enterApp),
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
             ),
           ],
         ),
@@ -829,6 +1617,10 @@ class LoginScreenState extends State<LoginScreen> {
   }
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, required this.initialLanguage});
 
@@ -878,6 +1670,15 @@ class HomeScreenState extends State<HomeScreen> {
         data = AppState(user: user, groups: groups);
         loading = false;
       });
+<<<<<<< HEAD
+
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) {
+          maybeShowCityOnboarding();
+        }
+      });
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     } catch (exception) {
       if (!mounted) return;
       setState(() {
@@ -927,6 +1728,41 @@ class HomeScreenState extends State<HomeScreen> {
     }
   }
 
+<<<<<<< HEAD
+  void updateCurrentUser(Member user) {
+    final current = data;
+    if (current == null) return;
+
+    setState(() {
+      current.user = user;
+
+      for (final group in current.groups) {
+        final index = group.members.indexWhere((member) => member.id == user.id);
+        if (index >= 0) {
+          group.members[index] = user;
+        }
+      }
+    });
+  }
+
+  Future<void> maybeShowCityOnboarding() async {
+    final current = data;
+    if (current == null) return;
+    if (current.user.selectedCities.isNotEmpty) return;
+
+    await showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => CityOnboardingDialog(
+        api: api,
+        t: t,
+        onSaved: updateCurrentUser,
+      ),
+    );
+  }
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   void replaceMessages(String groupId, List<ChatMessage> messages) {
     final current = data;
     if (current == null) return;
@@ -987,12 +1823,20 @@ class HomeScreenState extends State<HomeScreen> {
         onActivityUpdated: replaceActivity,
       );
     } else {
+<<<<<<< HEAD
+      body = ProfileView(user: appData.user, t: t, api: api, onUserUpdated: updateCurrentUser);
+=======
       body = ProfileView(user: appData.user, t: t);
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     }
 
     return Scaffold(
       appBar: AppBar(
+<<<<<<< HEAD
+        title: const Text('CrewHub V25', style: TextStyle(fontWeight: FontWeight.w900)),
+=======
         title: const Text('CrewHub V7', style: TextStyle(fontWeight: FontWeight.w900)),
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
         actions: [
           TextButton(
             onPressed: toggleLanguage,
@@ -1021,6 +1865,197 @@ class HomeScreenState extends State<HomeScreen> {
   }
 }
 
+<<<<<<< HEAD
+
+class CityOnboardingDialog extends StatefulWidget {
+  const CityOnboardingDialog({
+    super.key,
+    required this.api,
+    required this.t,
+    required this.onSaved,
+  });
+
+  final ApiClient api;
+  final AppText t;
+  final void Function(Member user) onSaved;
+
+  @override
+  State<CityOnboardingDialog> createState() => CityOnboardingDialogState();
+}
+
+class CityOnboardingDialogState extends State<CityOnboardingDialog> {
+  final searchController = TextEditingController();
+  List<String> results = [];
+  List<String> selected = [];
+  bool loading = false;
+  bool saving = false;
+  String? error;
+
+  @override
+  void initState() {
+    super.initState();
+    searchCities('');
+  }
+
+  @override
+  void dispose() {
+    searchController.dispose();
+    super.dispose();
+  }
+
+  Future<void> searchCities(String query) async {
+    setState(() {
+      loading = true;
+      error = null;
+    });
+
+    try {
+      final loaded = await widget.api.searchRomanianCities(query);
+      if (!mounted) return;
+
+      setState(() {
+        results = loaded;
+        loading = false;
+      });
+    } catch (exception) {
+      if (!mounted) return;
+
+      setState(() {
+        error = exception.toString();
+        loading = false;
+      });
+    }
+  }
+
+  void toggleCity(String city) {
+    setState(() {
+      if (selected.contains(city)) {
+        selected.remove(city);
+      } else {
+        selected.add(city);
+      }
+    });
+  }
+
+  Future<void> save() async {
+    if (selected.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(widget.t.selectAtLeastOneCity)),
+      );
+      return;
+    }
+
+    setState(() {
+      saving = true;
+    });
+
+    try {
+      final user = await widget.api.saveSelectedCities(selected);
+      widget.onSaved(user);
+
+      if (!mounted) return;
+      Navigator.pop(context);
+    } catch (exception) {
+      if (!mounted) return;
+
+      setState(() {
+        saving = false;
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('${widget.t.error}: $exception')),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final maxDialogHeight = MediaQuery.of(context).size.height * 0.78;
+
+    return AlertDialog(
+      title: Text(widget.t.chooseCitiesTitle),
+      content: SizedBox(
+        width: 460,
+        height: maxDialogHeight,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              widget.t.chooseCitiesSubtitle,
+              style: TextStyle(color: Colors.white.withOpacity(0.72)),
+            ),
+            const SizedBox(height: 14),
+            TextField(
+              controller: searchController,
+              autofocus: true,
+              decoration: InputDecoration(
+                labelText: widget.t.searchCity,
+                prefixIcon: const Icon(Icons.search_rounded),
+              ),
+              onChanged: searchCities,
+            ),
+            const SizedBox(height: 12),
+            if (selected.isNotEmpty) ...[
+              Text(
+                widget.t.selectedCities,
+                style: const TextStyle(fontWeight: FontWeight.w800),
+              ),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: selected.map((city) {
+                  return InputChip(
+                    label: Text(city),
+                    onDeleted: () => toggleCity(city),
+                  );
+                }).toList(),
+              ),
+              const SizedBox(height: 12),
+            ],
+            if (loading) const LinearProgressIndicator(),
+            if (error != null)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Text(error!, style: const TextStyle(color: Colors.orangeAccent)),
+              ),
+            Expanded(
+              child: results.isEmpty && !loading
+                  ? Center(child: Text(widget.t.noCitiesFound))
+                  : ListView.builder(
+                      itemCount: results.length,
+                      itemBuilder: (context, index) {
+                        final city = results[index];
+                        final isSelected = selected.contains(city);
+
+                        return ListTile(
+                          leading: Icon(
+                            isSelected
+                                ? Icons.check_circle_rounded
+                                : Icons.location_city_rounded,
+                          ),
+                          title: Text(city),
+                          onTap: () => toggleCity(city),
+                        );
+                      },
+                    ),
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        FilledButton(
+          onPressed: saving || selected.isEmpty ? null : save,
+          child: Text(saving ? widget.t.saving : widget.t.continueLabel),
+        ),
+      ],
+    );
+  }
+}
+
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class BackendErrorScreen extends StatelessWidget {
   const BackendErrorScreen({
     super.key,
@@ -1351,6 +2386,380 @@ class ActivitiesView extends StatelessWidget {
   }
 }
 
+<<<<<<< HEAD
+
+class ProfileView extends StatefulWidget {
+  const ProfileView({
+    super.key,
+    required this.user,
+    required this.t,
+    required this.api,
+    required this.onUserUpdated,
+  });
+
+  final Member user;
+  final AppText t;
+  final ApiClient api;
+  final void Function(Member user) onUserUpdated;
+
+  @override
+  State<ProfileView> createState() => ProfileViewState();
+}
+
+class ProfileViewState extends State<ProfileView> {
+  late TextEditingController bioController;
+  late TextEditingController instagramController;
+  late TextEditingController facebookController;
+  late TextEditingController tiktokController;
+  late TextEditingController linkedinController;
+  late TextEditingController websiteController;
+
+  late String gender;
+  late String avatarData;
+  bool saving = false;
+
+  @override
+  void initState() {
+    super.initState();
+    gender = widget.user.gender;
+    avatarData = widget.user.avatarData;
+
+    bioController = TextEditingController(text: widget.user.bio);
+    instagramController = TextEditingController(text: widget.user.socialLinks['instagram'] ?? '');
+    facebookController = TextEditingController(text: widget.user.socialLinks['facebook'] ?? '');
+    tiktokController = TextEditingController(text: widget.user.socialLinks['tiktok'] ?? '');
+    linkedinController = TextEditingController(text: widget.user.socialLinks['linkedin'] ?? '');
+    websiteController = TextEditingController(text: widget.user.socialLinks['website'] ?? '');
+  }
+
+  @override
+  void dispose() {
+    bioController.dispose();
+    instagramController.dispose();
+    facebookController.dispose();
+    tiktokController.dispose();
+    linkedinController.dispose();
+    websiteController.dispose();
+    super.dispose();
+  }
+
+  Uint8List? avatarBytes() {
+    if (avatarData.trim().isEmpty) return null;
+
+    try {
+      return base64Decode(avatarData);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  String genderLabel(String value) {
+    switch (value) {
+      case 'male':
+        return widget.t.genderMale;
+      case 'female':
+        return widget.t.genderFemale;
+      case 'other':
+        return widget.t.genderOther;
+      case 'preferNotToSay':
+        return widget.t.genderPreferNot;
+      default:
+        return widget.t.genderNotSet;
+    }
+  }
+
+  Future<void> pickAvatar() async {
+    final result = await FilePicker.platform.pickFiles(
+      type: FileType.image,
+      allowMultiple: false,
+      withData: true,
+    );
+
+    if (result == null || result.files.isEmpty) return;
+
+    final bytes = result.files.first.bytes;
+    if (bytes == null) return;
+
+    setState(() {
+      avatarData = base64Encode(bytes);
+    });
+  }
+
+  Future<void> saveProfile() async {
+    setState(() {
+      saving = true;
+    });
+
+    try {
+      final updated = await widget.api.updateProfile(
+        gender: gender,
+        bio: bioController.text.trim(),
+        avatarData: avatarData,
+        socialLinks: {
+          'instagram': instagramController.text.trim(),
+          'facebook': facebookController.text.trim(),
+          'tiktok': tiktokController.text.trim(),
+          'linkedin': linkedinController.text.trim(),
+          'website': websiteController.text.trim(),
+        },
+      );
+
+      widget.onUserUpdated(updated);
+
+      if (!mounted) return;
+
+      setState(() {
+        saving = false;
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(widget.t.profileSaved)),
+      );
+    } catch (exception) {
+      if (!mounted) return;
+
+      setState(() {
+        saving = false;
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('${widget.t.error}: $exception')),
+      );
+    }
+  }
+
+  Future<void> logout() async {
+    final shouldLogout = await showDialog<bool>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(widget.t.logout),
+          content: Text(widget.t.logoutQuestion),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: Text(widget.t.cancel),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.pop(context, true),
+              child: Text(widget.t.logout),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (shouldLogout != true) return;
+
+    await widget.api.logout();
+
+    if (!mounted) return;
+
+    Navigator.of(context).pushAndRemoveUntil(
+      MaterialPageRoute(builder: (_) => const LoginScreen()),
+      (route) => false,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final bytes = avatarBytes();
+
+    return ListView(
+      padding: const EdgeInsets.all(16),
+      children: [
+        PageTitle(title: widget.t.profile, subtitle: widget.t.profileSubtitle),
+        const SizedBox(height: 14),
+
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(18),
+            child: Column(
+              children: [
+                CircleAvatar(
+                  radius: 54,
+                  backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.16),
+                  backgroundImage: bytes == null ? null : MemoryImage(bytes),
+                  child: bytes == null
+                      ? const Icon(Icons.person_rounded, size: 56)
+                      : null,
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  widget.user.name,
+                  style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
+                ),
+                Text(
+                  widget.user.username,
+                  style: TextStyle(color: Colors.white.withOpacity(0.65)),
+                ),
+                const SizedBox(height: 14),
+                Row(
+                  children: [
+                    Expanded(
+                      child: OutlinedButton.icon(
+                        onPressed: pickAvatar,
+                        icon: const Icon(Icons.photo_library_rounded),
+                        label: Text(widget.t.chooseFromGallery),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    IconButton.outlined(
+                      onPressed: avatarData.isEmpty
+                          ? null
+                          : () {
+                              setState(() {
+                                avatarData = '';
+                              });
+                            },
+                      icon: const Icon(Icons.delete_outline_rounded),
+                      tooltip: widget.t.removePhoto,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+
+        const SizedBox(height: 12),
+
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SectionHeader(widget.t.editProfile),
+                const SizedBox(height: 14),
+                DropdownButtonFormField<String>(
+                  value: gender.isEmpty ? '' : gender,
+                  decoration: InputDecoration(
+                    labelText: widget.t.gender,
+                    prefixIcon: const Icon(Icons.wc_rounded),
+                  ),
+                  items: [
+                    DropdownMenuItem(value: '', child: Text(widget.t.genderNotSet)),
+                    DropdownMenuItem(value: 'male', child: Text(widget.t.genderMale)),
+                    DropdownMenuItem(value: 'female', child: Text(widget.t.genderFemale)),
+                    DropdownMenuItem(value: 'other', child: Text(widget.t.genderOther)),
+                    DropdownMenuItem(value: 'preferNotToSay', child: Text(widget.t.genderPreferNot)),
+                  ],
+                  onChanged: (value) {
+                    setState(() {
+                      gender = value ?? '';
+                    });
+                  },
+                ),
+                const SizedBox(height: 12),
+                TextField(
+                  controller: bioController,
+                  maxLines: 4,
+                  maxLength: 500,
+                  decoration: InputDecoration(
+                    labelText: widget.t.bio,
+                    hintText: widget.t.bioHint,
+                    prefixIcon: const Icon(Icons.description_rounded),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+
+        const SizedBox(height: 12),
+
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SectionHeader(widget.t.socialProfiles),
+                const SizedBox(height: 14),
+                TextField(
+                  controller: instagramController,
+                  decoration: const InputDecoration(
+                    labelText: 'Instagram',
+                    prefixIcon: Icon(Icons.alternate_email_rounded),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                TextField(
+                  controller: facebookController,
+                  decoration: const InputDecoration(
+                    labelText: 'Facebook',
+                    prefixIcon: Icon(Icons.facebook_rounded),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                TextField(
+                  controller: tiktokController,
+                  decoration: const InputDecoration(
+                    labelText: 'TikTok',
+                    prefixIcon: Icon(Icons.music_note_rounded),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                TextField(
+                  controller: linkedinController,
+                  decoration: const InputDecoration(
+                    labelText: 'LinkedIn',
+                    prefixIcon: Icon(Icons.business_center_rounded),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                TextField(
+                  controller: websiteController,
+                  decoration: const InputDecoration(
+                    labelText: 'Website',
+                    prefixIcon: Icon(Icons.language_rounded),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+
+        const SizedBox(height: 12),
+
+        InfoCard(
+          icon: Icons.location_city_rounded,
+          title: widget.t.selectedCities,
+          subtitle: widget.user.selectedCities.isEmpty ? '-' : widget.user.selectedCities.join(', '),
+        ),
+
+        const SizedBox(height: 12),
+
+        if (bioController.text.trim().isNotEmpty)
+          InfoCard(
+            icon: Icons.badge_rounded,
+            title: widget.t.bio,
+            subtitle: bioController.text.trim(),
+          ),
+
+        const SizedBox(height: 20),
+
+        FilledButton.icon(
+          onPressed: saving ? null : saveProfile,
+          icon: const Icon(Icons.save_rounded),
+          label: Text(saving ? widget.t.saving : widget.t.saveProfile),
+        ),
+
+        const SizedBox(height: 12),
+
+        OutlinedButton.icon(
+          onPressed: saving ? null : logout,
+          icon: const Icon(Icons.logout_rounded),
+          label: Text(widget.t.logout),
+        ),
+
+        const SizedBox(height: 12),
+
+        InfoCard(icon: Icons.api_rounded, title: widget.t.api, subtitle: ApiConfig.baseUrl),
+        const SizedBox(height: 12),
+        InfoCard(icon: Icons.save_rounded, title: widget.t.persistence, subtitle: widget.t.persistenceSubtitle),
+=======
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key, required this.user, required this.t});
 
@@ -1369,11 +2778,16 @@ class ProfileView extends StatelessWidget {
         InfoCard(icon: Icons.api_rounded, title: t.api, subtitle: ApiConfig.baseUrl),
         const SizedBox(height: 12),
         InfoCard(icon: Icons.save_rounded, title: t.persistence, subtitle: t.persistenceSubtitle),
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       ],
     );
   }
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class GroupDetailsScreen extends StatefulWidget {
   const GroupDetailsScreen({
     super.key,
@@ -1427,7 +2841,20 @@ class GroupDetailsScreenState extends State<GroupDetailsScreen> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+<<<<<<< HEAD
+          InfoCard(
+            icon: categoryIcon(group.category),
+            title: group.name,
+            subtitle: [
+              widget.t.categoryLabel(group.category),
+              if (group.city.trim().isNotEmpty) group.city,
+              if (group.location.trim().isNotEmpty) group.location,
+              widget.t.members(group.members.length),
+            ].join(' • '),
+          ),
+=======
           InfoCard(icon: categoryIcon(group.category), title: group.name, subtitle: '${widget.t.categoryLabel(group.category)} • ${widget.t.members(group.members.length)}'),
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
           const SizedBox(height: 12),
           Text(group.description),
           const SizedBox(height: 14),
@@ -1516,6 +2943,10 @@ class GroupDetailsScreenState extends State<GroupDetailsScreen> {
   }
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class ChatScreen extends StatefulWidget {
   const ChatScreen({
     super.key,
@@ -1539,10 +2970,19 @@ class ChatScreen extends StatefulWidget {
 class ChatScreenState extends State<ChatScreen> {
   final controller = TextEditingController();
   List<ChatMessage> messages = [];
+<<<<<<< HEAD
+  ChatMessage? replyTarget;
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   bool loading = true;
   bool sending = false;
   String? error;
 
+<<<<<<< HEAD
+  static const quickEmojis = ['❤️', '😂', '🔥', '👍', '😮', '👏'];
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   @override
   void initState() {
     super.initState();
@@ -1556,9 +2996,30 @@ class ChatScreenState extends State<ChatScreen> {
     super.dispose();
   }
 
+<<<<<<< HEAD
+  ChatMessage? messageById(String? id) {
+    if (id == null) return null;
+
+    for (final message in messages) {
+      if (message.id == id) return message;
+    }
+
+    return null;
+  }
+
+  String senderNameFor(ChatMessage message) {
+    if (message.senderId == widget.user.id) return widget.user.name;
+    return widget.group.memberById(message.senderId)?.name ?? widget.t.system;
+  }
+
+  Future<void> loadMessages() async {
+    try {
+      final loaded = await widget.api.getMessages(widget.group.id, widget.user.id);
+=======
   Future<void> loadMessages() async {
     try {
       final loaded = await widget.api.getMessages(widget.group.id);
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       if (!mounted) return;
       setState(() {
         messages = loaded;
@@ -1588,12 +3049,20 @@ class ChatScreenState extends State<ChatScreen> {
         groupId: widget.group.id,
         senderId: widget.user.id,
         text: text,
+<<<<<<< HEAD
+        replyToMessageId: replyTarget?.id,
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       );
 
       controller.clear();
 
       setState(() {
         messages.add(message);
+<<<<<<< HEAD
+        replyTarget = null;
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
         sending = false;
       });
 
@@ -1610,6 +3079,150 @@ class ChatScreenState extends State<ChatScreen> {
     }
   }
 
+<<<<<<< HEAD
+  Future<void> reactToMessage(ChatMessage message, String emoji) async {
+    try {
+      final updated = await widget.api.toggleMessageReaction(
+        messageId: message.id,
+        userId: widget.user.id,
+        emoji: emoji,
+      );
+
+      if (!mounted) return;
+
+      setState(() {
+        final index = messages.indexWhere((item) => item.id == updated.id);
+        if (index >= 0) {
+          messages[index] = updated;
+        }
+      });
+
+      widget.onMessagesChanged(messages);
+    } catch (exception) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('${widget.t.error}: $exception')),
+      );
+    }
+  }
+
+  Future<void> deleteMessageForMe(ChatMessage message) async {
+    try {
+      await widget.api.deleteMessageForMe(
+        messageId: message.id,
+        userId: widget.user.id,
+      );
+
+      if (!mounted) return;
+
+      setState(() {
+        messages.removeWhere((item) => item.id == message.id);
+
+        if (replyTarget?.id == message.id) {
+          replyTarget = null;
+        }
+      });
+
+      widget.onMessagesChanged(messages);
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(widget.t.messageDeletedForMe)),
+      );
+    } catch (exception) {
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('${widget.t.error}: $exception')),
+      );
+    }
+  }
+
+  Future<void> showReactionPopup(ChatMessage message, Offset position) async {
+    final selected = await showMenu<String>(
+      context: context,
+      position: RelativeRect.fromLTRB(
+        position.dx,
+        position.dy,
+        position.dx,
+        position.dy,
+      ),
+      items: quickEmojis.map((emoji) {
+        return PopupMenuItem<String>(
+          value: emoji,
+          child: Text(emoji, style: const TextStyle(fontSize: 22)),
+        );
+      }).toList(),
+    );
+
+    if (selected == null) return;
+
+    await reactToMessage(message, selected);
+  }
+
+  Future<void> showMessageActions(ChatMessage message, Offset position) async {
+    final selected = await showMenu<String>(
+      context: context,
+      position: RelativeRect.fromLTRB(
+        position.dx,
+        position.dy,
+        position.dx,
+        position.dy,
+      ),
+      items: [
+        PopupMenuItem<String>(
+          value: 'reaction',
+          child: Row(
+            children: [
+              const Icon(Icons.add_reaction_rounded),
+              const SizedBox(width: 10),
+              Text(widget.t.addReaction),
+            ],
+          ),
+        ),
+        PopupMenuItem<String>(
+          value: 'deleteForMe',
+          child: Row(
+            children: [
+              const Icon(Icons.delete_outline_rounded),
+              const SizedBox(width: 10),
+              Text(widget.t.deleteForMe),
+            ],
+          ),
+        ),
+        PopupMenuItem<String>(
+          value: 'reply',
+          child: Row(
+            children: [
+              const Icon(Icons.reply_rounded),
+              const SizedBox(width: 10),
+              Text(widget.t.reply),
+            ],
+          ),
+        ),
+      ],
+    );
+
+    if (selected == null) return;
+
+    if (selected == 'reaction') {
+      await showReactionPopup(message, position);
+      return;
+    }
+
+    if (selected == 'deleteForMe') {
+      await deleteMessageForMe(message);
+      return;
+    }
+
+    if (selected == 'reply') {
+      setState(() {
+        replyTarget = message;
+      });
+    }
+  }
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   @override
   Widget build(BuildContext context) {
     final sorted = [...messages];
@@ -1638,15 +3251,62 @@ class ChatScreenState extends State<ChatScreen> {
                 final message = sorted[index];
                 final isMe = message.senderId == widget.user.id;
                 final sender = widget.group.memberById(message.senderId);
+<<<<<<< HEAD
+                final replyTo = messageById(message.replyToMessageId);
+
+                return ChatBubble(
+                  message: message,
+                  replyToMessage: replyTo,
+                  replyToSenderName: replyTo == null ? '' : senderNameFor(replyTo),
+                  senderName: isMe ? widget.user.name : (sender?.name ?? widget.t.system),
+                  senderAvatarData: isMe ? widget.user.avatarData : (sender?.avatarData ?? ''),
+                  isMe: isMe,
+                  onLongPressAt: (position) => showMessageActions(message, position),
+=======
 
                 return ChatBubble(
                   message: message,
                   senderName: sender?.name ?? widget.t.system,
                   isMe: isMe,
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
                 );
               },
             ),
           ),
+<<<<<<< HEAD
+          if (replyTarget != null)
+            Container(
+              margin: const EdgeInsets.fromLTRB(12, 4, 12, 0),
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.08),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Row(
+                children: [
+                  const Icon(Icons.reply_rounded, size: 20),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      '${widget.t.replyingTo(senderNameFor(replyTarget!))}: ${replyTarget!.text}',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  IconButton(
+                    tooltip: widget.t.cancelReply,
+                    onPressed: () {
+                      setState(() {
+                        replyTarget = null;
+                      });
+                    },
+                    icon: const Icon(Icons.close_rounded),
+                  ),
+                ],
+              ),
+            ),
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
           SafeArea(
             top: false,
             child: Padding(
@@ -1678,6 +3338,10 @@ class ChatScreenState extends State<ChatScreen> {
   }
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class ActivityDetailsScreen extends StatefulWidget {
   const ActivityDetailsScreen({
     super.key,
@@ -1773,7 +3437,19 @@ class ActivityDetailsScreenState extends State<ActivityDetailsScreen> {
           InfoCard(
             icon: Icons.location_on_rounded,
             title: activity.location,
+<<<<<<< HEAD
+            subtitle: [activity.city, activity.county, activity.region, activity.country]
+                .where((item) => item.trim().isNotEmpty)
+                .join(' • '),
+          ),
+          const SizedBox(height: 12),
+          InfoCard(
+            icon: Icons.schedule_rounded,
+            title: longDate(activity.dateTime),
+            subtitle: widget.t.dateAndTime,
+=======
             subtitle: longDate(activity.dateTime),
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
           ),
           const SizedBox(height: 12),
           LinearProgressIndicator(value: progress),
@@ -1819,6 +3495,11 @@ class ActivityDetailsScreenState extends State<ActivityDetailsScreen> {
   }
 }
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class CreateGroupScreen extends StatefulWidget {
   const CreateGroupScreen({super.key, required this.api, required this.t});
 
@@ -1830,6 +3511,54 @@ class CreateGroupScreen extends StatefulWidget {
 }
 
 class CreateGroupScreenState extends State<CreateGroupScreen> {
+<<<<<<< HEAD
+  final nameController = TextEditingController();
+  final descriptionController = TextEditingController();
+  final citySearchController = TextEditingController();
+  final locationController = TextEditingController();
+
+  GroupCategory category = GroupCategory.social;
+  List<String> cityResults = [];
+  String selectedCity = '';
+  bool loadingCities = false;
+  bool saving = false;
+
+  @override
+  void initState() {
+    super.initState();
+    searchCities('');
+  }
+
+  Future<void> searchCities(String query) async {
+    setState(() {
+      loadingCities = true;
+    });
+
+    try {
+      final loaded = await widget.api.searchRomanianCities(query);
+
+      if (!mounted) return;
+
+      setState(() {
+        cityResults = loaded;
+        loadingCities = false;
+      });
+    } catch (_) {
+      if (!mounted) return;
+
+      setState(() {
+        loadingCities = false;
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    descriptionController.dispose();
+    citySearchController.dispose();
+    locationController.dispose();
+=======
   final formKey = GlobalKey<FormState>();
   final nameController = TextEditingController();
   final descriptionController = TextEditingController();
@@ -1840,12 +3569,29 @@ class CreateGroupScreenState extends State<CreateGroupScreen> {
   void dispose() {
     nameController.dispose();
     descriptionController.dispose();
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     super.dispose();
   }
 
   Future<void> submit() async {
+<<<<<<< HEAD
+    if (nameController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(widget.t.addName)),
+      );
+      return;
+    }
+
+    if (selectedCity.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(widget.t.chooseGroupCity)),
+      );
+      return;
+    }
+=======
     final form = formKey.currentState;
     if (form == null || !form.validate()) return;
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
     setState(() {
       saving = true;
@@ -1856,6 +3602,26 @@ class CreateGroupScreenState extends State<CreateGroupScreen> {
         name: nameController.text.trim(),
         description: descriptionController.text.trim(),
         category: category,
+<<<<<<< HEAD
+        socialSubtype: '',
+        country: 'Romania',
+        city: selectedCity.trim(),
+        location: locationController.text.trim(),
+      );
+
+      if (!mounted) return;
+      Navigator.pop(context, group);
+    } catch (exception) {
+      if (!mounted) return;
+
+      setState(() {
+        saving = false;
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('${widget.t.error}: $exception')),
+      );
+=======
       );
       if (!mounted) return;
       Navigator.pop(context, group);
@@ -1865,6 +3631,7 @@ class CreateGroupScreenState extends State<CreateGroupScreen> {
       });
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${widget.t.error}: $exception')));
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     }
   }
 
@@ -1874,6 +3641,136 @@ class CreateGroupScreenState extends State<CreateGroupScreen> {
       appBar: AppBar(
         title: Text(widget.t.createGroupTitle),
       ),
+<<<<<<< HEAD
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          PageTitle(title: widget.t.newGroup, subtitle: widget.t.savedInBackend),
+          const SizedBox(height: 14),
+
+          TextField(
+            controller: nameController,
+            decoration: InputDecoration(
+              labelText: widget.t.groupName,
+              prefixIcon: const Icon(Icons.groups_rounded),
+            ),
+          ),
+
+          const SizedBox(height: 12),
+
+          TextField(
+            controller: descriptionController,
+            minLines: 3,
+            maxLines: 5,
+            decoration: InputDecoration(
+              labelText: widget.t.description,
+              prefixIcon: const Icon(Icons.description_rounded),
+            ),
+          ),
+
+          const SizedBox(height: 12),
+
+          DropdownButtonFormField<GroupCategory>(
+            value: category,
+            decoration: InputDecoration(
+              labelText: widget.t.category,
+              prefixIcon: const Icon(Icons.category_rounded),
+            ),
+            items: GroupCategory.values.map((item) {
+              return DropdownMenuItem(
+                value: item,
+                child: Row(
+                  children: [
+                    Icon(categoryIcon(item), size: 20),
+                    const SizedBox(width: 10),
+                    Text(widget.t.categoryLabel(item)),
+                  ],
+                ),
+              );
+            }).toList(),
+            onChanged: (value) {
+              if (value == null) return;
+              setState(() {
+                category = value;
+              });
+            },
+          ),
+
+          const SizedBox(height: 12),
+
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(14),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SectionHeader(widget.t.groupCity),
+                  const SizedBox(height: 12),
+
+                  TextField(
+                    controller: citySearchController,
+                    decoration: InputDecoration(
+                      labelText: widget.t.groupCity,
+                      prefixIcon: const Icon(Icons.location_city_rounded),
+                    ),
+                    onChanged: searchCities,
+                  ),
+
+                  const SizedBox(height: 8),
+
+                  if (loadingCities) const LinearProgressIndicator(),
+
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxHeight: 180),
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: cityResults.length,
+                      itemBuilder: (context, index) {
+                        final city = cityResults[index];
+                        final isSelected = city == selectedCity;
+
+                        return ListTile(
+                          dense: true,
+                          leading: Icon(
+                            isSelected
+                                ? Icons.check_circle_rounded
+                                : Icons.location_city_rounded,
+                          ),
+                          title: Text(city),
+                          onTap: () {
+                            setState(() {
+                              selectedCity = city;
+                              citySearchController.text = city;
+                            });
+                          },
+                        );
+                      },
+                    ),
+                  ),
+
+                  const SizedBox(height: 12),
+
+                  TextField(
+                    controller: locationController,
+                    decoration: InputDecoration(
+                      labelText: widget.t.groupLocation,
+                      hintText: widget.t.groupLocationHint,
+                      prefixIcon: const Icon(Icons.place_rounded),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 24),
+
+          FilledButton(
+            onPressed: saving ? null : submit,
+            child: Text(saving ? widget.t.saving : widget.t.createGroupTitle),
+          ),
+        ],
+=======
       body: Form(
         key: formKey,
         child: ListView(
@@ -1913,11 +3810,16 @@ class CreateGroupScreenState extends State<CreateGroupScreen> {
             ),
           ],
         ),
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       ),
     );
   }
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class CreateActivityScreen extends StatefulWidget {
   const CreateActivityScreen({super.key, required this.api, required this.group, required this.t});
 
@@ -1937,6 +3839,14 @@ class CreateActivityScreenState extends State<CreateActivityScreen> {
   final minController = TextEditingController(text: '4');
   final maxController = TextEditingController(text: '10');
   final costController = TextEditingController(text: '0');
+<<<<<<< HEAD
+  final cityController = TextEditingController();
+  List<RomaniaRegion> regions = [];
+  RomaniaRegion? selectedRegion;
+  String? selectedCounty;
+  bool loadingRegions = true;
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   String sportType = 'none';
   late GroupCategory category;
   DateTime dateTime = DateTime.now().add(const Duration(days: 1));
@@ -1947,6 +3857,30 @@ class CreateActivityScreenState extends State<CreateActivityScreen> {
     super.initState();
     category = widget.group.category;
     sportType = category == GroupCategory.sport ? 'football' : 'none';
+<<<<<<< HEAD
+    loadRomaniaRegions();
+  }
+
+  Future<void> loadRomaniaRegions() async {
+    try {
+      final loaded = await widget.api.getRomaniaRegions();
+      if (!mounted) return;
+      setState(() {
+        regions = loaded;
+        if (regions.isNotEmpty) {
+          selectedRegion = regions.first;
+          selectedCounty = regions.first.counties.isNotEmpty ? regions.first.counties.first : null;
+        }
+        loadingRegions = false;
+      });
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        loadingRegions = false;
+      });
+    }
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
   }
 
   @override
@@ -1957,6 +3891,10 @@ class CreateActivityScreenState extends State<CreateActivityScreen> {
     minController.dispose();
     maxController.dispose();
     costController.dispose();
+<<<<<<< HEAD
+    cityController.dispose();
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
     super.dispose();
   }
 
@@ -2034,6 +3972,13 @@ class CreateActivityScreenState extends State<CreateActivityScreen> {
         category: category,
         sportType: sportType,
         location: locationController.text.trim(),
+<<<<<<< HEAD
+        country: 'Romania',
+        region: selectedRegion?.name ?? 'București-Ilfov',
+        county: selectedCounty ?? 'București',
+        city: cityController.text.trim(),
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
         description: descriptionController.text.trim(),
         dateTime: dateTime,
         minParticipants: min,
@@ -2074,6 +4019,52 @@ class CreateActivityScreenState extends State<CreateActivityScreen> {
             const SizedBox(height: 12),
             TextFormField(controller: locationController, decoration: InputDecoration(labelText: widget.t.location)),
             const SizedBox(height: 12),
+<<<<<<< HEAD
+            InfoCard(
+              icon: Icons.flag_rounded,
+              title: 'Romania',
+              subtitle: widget.t.country,
+            ),
+            const SizedBox(height: 12),
+            if (loadingRegions)
+              const LinearProgressIndicator()
+            else ...[
+              DropdownButtonFormField<RomaniaRegion>(
+                value: selectedRegion,
+                decoration: InputDecoration(labelText: widget.t.region),
+                items: regions.map((region) {
+                  return DropdownMenuItem(value: region, child: Text(region.name));
+                }).toList(),
+                onChanged: (value) {
+                  if (value == null) return;
+                  setState(() {
+                    selectedRegion = value;
+                    selectedCounty = value.counties.isNotEmpty ? value.counties.first : null;
+                  });
+                },
+              ),
+              const SizedBox(height: 12),
+              DropdownButtonFormField<String>(
+                value: selectedCounty,
+                decoration: InputDecoration(labelText: widget.t.county),
+                items: (selectedRegion?.counties ?? []).map((county) {
+                  return DropdownMenuItem(value: county, child: Text(county));
+                }).toList(),
+                onChanged: (value) {
+                  setState(() {
+                    selectedCounty = value;
+                  });
+                },
+              ),
+              const SizedBox(height: 12),
+              TextFormField(
+                controller: cityController,
+                decoration: InputDecoration(labelText: widget.t.city, hintText: widget.t.cityHint),
+              ),
+            ],
+            const SizedBox(height: 12),
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
             TextFormField(
               controller: descriptionController,
               minLines: 3,
@@ -2190,10 +4181,84 @@ class ChatPreviewTile extends StatelessWidget {
   }
 }
 
+<<<<<<< HEAD
+
+
+class ProfileMiniAvatar extends StatelessWidget {
+  const ProfileMiniAvatar({
+    super.key,
+    required this.name,
+    required this.avatarData,
+    this.size = 34,
+  });
+
+  final String name;
+  final String avatarData;
+  final double size;
+
+  Uint8List? avatarBytes() {
+    if (avatarData.trim().isEmpty) return null;
+
+    try {
+      return base64Decode(avatarData);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  String get initials {
+    final cleanName = name.trim();
+    if (cleanName.isEmpty) return '?';
+
+    final parts = cleanName.split(RegExp(r'\s+'));
+    if (parts.length >= 2) {
+      return '${parts[0][0]}${parts[1][0]}'.toUpperCase();
+    }
+
+    return cleanName[0].toUpperCase();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final bytes = avatarBytes();
+
+    return CircleAvatar(
+      radius: size / 2,
+      backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.22),
+      backgroundImage: bytes == null ? null : MemoryImage(bytes),
+      child: bytes == null
+          ? Text(
+              initials,
+              style: const TextStyle(fontWeight: FontWeight.w900),
+            )
+          : null,
+    );
+  }
+}
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class ChatBubble extends StatelessWidget {
   const ChatBubble({
     super.key,
     required this.message,
+<<<<<<< HEAD
+    required this.replyToMessage,
+    required this.replyToSenderName,
+    required this.senderName,
+    required this.senderAvatarData,
+    required this.isMe,
+    required this.onLongPressAt,
+  });
+
+  final ChatMessage message;
+  final ChatMessage? replyToMessage;
+  final String replyToSenderName;
+  final String senderName;
+  final String senderAvatarData;
+  final bool isMe;
+  final void Function(Offset position) onLongPressAt;
+=======
     required this.senderName,
     required this.isMe,
   });
@@ -2201,11 +4266,141 @@ class ChatBubble extends StatelessWidget {
   final ChatMessage message;
   final String senderName;
   final bool isMe;
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 
   @override
   Widget build(BuildContext context) {
     final color = isMe ? Theme.of(context).colorScheme.primaryContainer : const Color(0xFF101B2F);
     final textColor = isMe ? Colors.black : Colors.white;
+<<<<<<< HEAD
+    final reactions = message.reactionSummary.entries.toList();
+
+    final bubble = GestureDetector(
+      onLongPressStart: (details) => onLongPressAt(details.globalPosition),
+      onSecondaryTapDown: (details) => onLongPressAt(details.globalPosition),
+      child: Column(
+        crossAxisAlignment: isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            constraints: const BoxConstraints(maxWidth: 290),
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.only(
+                topLeft: const Radius.circular(18),
+                topRight: const Radius.circular(18),
+                bottomLeft: Radius.circular(isMe ? 18 : 6),
+                bottomRight: Radius.circular(isMe ? 6 : 18),
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (replyToMessage != null) ...[
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(9),
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(isMe ? 0.10 : 0.22),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border(
+                        left: BorderSide(
+                          color: isMe ? Colors.black.withOpacity(0.35) : Colors.white.withOpacity(0.45),
+                          width: 3,
+                        ),
+                      ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          replyToSenderName,
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w900,
+                            color: textColor.withOpacity(0.82),
+                          ),
+                        ),
+                        const SizedBox(height: 3),
+                        Text(
+                          replyToMessage!.text,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: textColor.withOpacity(0.72),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                ],
+                Text(
+                  senderName,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: textColor.withOpacity(0.7),
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(message.text, style: TextStyle(color: textColor)),
+              ],
+            ),
+          ),
+          if (reactions.isNotEmpty)
+            Container(
+              margin: EdgeInsets.only(top: 4, left: isMe ? 0 : 8, right: isMe ? 8 : 0),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                color: const Color(0xFF101B2F),
+                borderRadius: BorderRadius.circular(999),
+                border: Border.all(color: Colors.white.withOpacity(0.12)),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: reactions.map((entry) {
+                  final count = entry.value;
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 2),
+                    child: Text(
+                      count > 1 ? '${entry.key} $count' : entry.key,
+                      style: const TextStyle(fontSize: 13),
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+        ],
+      ),
+    );
+
+    final avatar = ProfileMiniAvatar(
+      name: senderName,
+      avatarData: senderAvatarData,
+      size: 34,
+    );
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: Row(
+        mainAxisAlignment: isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          if (!isMe) ...[
+            avatar,
+            const SizedBox(width: 8),
+          ],
+          Flexible(child: bubble),
+          if (isMe) ...[
+            const SizedBox(width: 8),
+            avatar,
+          ],
+        ],
+=======
 
     return Align(
       alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
@@ -2226,11 +4421,16 @@ class ChatBubble extends StatelessWidget {
             Text(message.text, style: TextStyle(color: textColor)),
           ],
         ),
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
       ),
     );
   }
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
 class GroupTile extends StatelessWidget {
   const GroupTile({
     super.key,
@@ -2253,8 +4453,23 @@ class GroupTile extends StatelessWidget {
         title: Text(group.name, style: const TextStyle(fontWeight: FontWeight.w900)),
         subtitle: Text(
           next == null
+<<<<<<< HEAD
+              ? [
+                  t.categoryLabel(group.category),
+                  if (group.city.trim().isNotEmpty) group.city,
+                  if (group.location.trim().isNotEmpty) group.location,
+                  t.members(group.members.length),
+                ].join(' • ')
+              : [
+                  t.categoryLabel(group.category),
+                  if (group.city.trim().isNotEmpty) group.city,
+                  if (group.location.trim().isNotEmpty) group.location,
+                  next.title,
+                ].join(' • '),
+=======
               ? '${t.categoryLabel(group.category)} • ${t.members(group.members.length)}'
               : '${t.categoryLabel(group.category)} • ${next.title}',
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
         ),
         trailing: const Icon(Icons.chevron_right_rounded),
         onTap: onTap,
@@ -2284,7 +4499,11 @@ class ActivityTile extends StatelessWidget {
         leading: Icon(categoryIcon(activity.category), color: Theme.of(context).colorScheme.primary),
         title: Text(activity.title, style: const TextStyle(fontWeight: FontWeight.w900)),
         subtitle: Text(
+<<<<<<< HEAD
+          '${group.name} • ${activity.county} • ${shortDate(activity.dateTime)} • ${activity.goingCount}/${activity.maxParticipants} ${t.going.toLowerCase()}',
+=======
           '${group.name} • ${shortDate(activity.dateTime)} • ${activity.goingCount}/${activity.maxParticipants} ${t.going.toLowerCase()}',
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
         ),
         trailing: Chip(label: Text(t.activityStatusLabel(activity.business.status))),
         onTap: onTap,

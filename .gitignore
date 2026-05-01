@@ -1,8 +1,34 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> d0fa894ba4201bdcbac0c4bea2cd11d1937c5d8e
 ﻿# Flutter
 .dart_tool/
 build/
 .flutter-plugins
 .flutter-plugins-dependencies
+<<<<<<< HEAD
+=======
+
+# Node
+backend/node_modules/
+node_modules/
+npm-debug.log
+
+# Local demo database
+backend/data/database.json
+
+# IDE
+.vscode/
+*.iml
+
+# OS
+=======
+﻿# Node backend
+backend/node_modules/
+backend/data/database.json
+backend/.env
+>>>>>>> d0fa894ba4201bdcbac0c4bea2cd11d1937c5d8e
 
 # IDE
 *.iml
@@ -17,3 +43,9 @@ backend/data/database.json
 
 # JetBrains / Android Studio
 .idea/
+<<<<<<< HEAD
+=======
+>>>>>>> fc7dbce31452fcc05e5a2c33d11d97fc0d710a1d
+.DS_Store
+Thumbs.db
+>>>>>>> d0fa894ba4201bdcbac0c4bea2cd11d1937c5d8e
