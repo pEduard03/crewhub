@@ -1,17 +1,19 @@
-﻿# Node backend
-backend/node_modules/
-backend/data/database.json
-backend/.env
+﻿# Flutter
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
 
-# Flutter
-mobile/.dart_tool/
-mobile/build/
-mobile/.flutter-plugins
-mobile/.flutter-plugins-dependencies
-mobile/.packages
-
-# IDE / OS
+# IDE
+*.iml
 .vscode/
+
+# Node
+backend/node_modules/
+node_modules/
+
+# Local demo database
+backend/data/database.json
+
+# JetBrains / Android Studio
 .idea/
-.DS_Store
-Thumbs.db
